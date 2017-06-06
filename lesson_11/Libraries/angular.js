@@ -16550,7 +16550,7 @@ function $FilterProvider($provide) {
   */
 
   register('currency', currencyFilter);
-  register('date', dateFilter);
+  register('dueDate', dateFilter);
   register('filter', filterFilter);
   register('json', jsonFilter);
   register('limitTo', limitToFilter);
@@ -17115,7 +17115,7 @@ var DATE_FORMATS_SPLIT = /((?:[^yMdHhmsaZEw']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|d
 
 /**
  * @ngdoc filter
- * @name date
+ * @name dueDate
  * @kind function
  *
  * @description
@@ -18840,7 +18840,7 @@ var inputType = {
      </file>
      </example>
      */
-  'date': createDateInputType('date', DATE_REGEXP,
+  'date': createDateInputType('dueDate', DATE_REGEXP,
          createDateParser(DATE_REGEXP, ['yyyy', 'MM', 'dd']),
          'yyyy-MM-dd'),
 
@@ -18899,7 +18899,7 @@ var inputType = {
       </form>
     </file>
     <file name="protractor.js" type="protractor">
-      var value = element(by.binding('example.value | date: "yyyy-MM-ddTHH:mm:ss"'));
+      var value = element(by.binding(dueDate));
       var valid = element(by.binding('myForm.input.$valid'));
       var input = element(by.model('example.value'));
 
@@ -19812,7 +19812,7 @@ function createDateInputType(type, regexp, parseDate, format) {
           var timezoneOffset = 60000 * previousDate.getTimezoneOffset();
           previousDate = new Date(previousDate.getTime() + timezoneOffset);
         }
-        return $filter('date')(value, format, timezone);
+        return $filter('dueDate')(value, format, timezone);
       } else {
         previousDate = null;
         return '';

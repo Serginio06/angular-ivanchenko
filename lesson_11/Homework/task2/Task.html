@@ -21,7 +21,7 @@
             margin-top: 15px;
         }
 
-        .input-group{
+        .input-group {
             width: 100%;
         }
     </style>
@@ -58,6 +58,8 @@
                     ToDoCtrl.$inject = ['$scope'];
                     function ToDoCtrl($scope) {
                         $scope.items = defaultList;
+                        $scope.editMode = false;
+                        $scope.changeIndex = -1;
                         $scope.itemName = "";
                         $scope.itemDescription = "";
                         $scope.itemDueDate = "";
@@ -85,6 +87,44 @@
                                 $scope.itemDescription = "";
                                 $scope.itemDueDate = "";
                                 $scope.itemIsCompleted = "";
+
+                            }
+                        };
+
+                        $scope.saveChanges = function () {
+
+
+                            if ($scope.changeIndex != -1) {
+
+
+                                $scope.items[$scope.changeIndex].name = $scope.itemName;
+                                $scope.items[$scope.changeIndex].description = $scope.itemDescription;
+                                $scope.items[$scope.changeIndex].dueDate = $scope.itemDueDate;
+                                $scope.items[$scope.changeIndex].completed = $scope.itemIsCompleted;
+
+                                $scope.changeIndex = -1;
+                                $scope.editMode = false;
+                                $scope.itemName = "";
+                                $scope.itemDescription = "";
+                                $scope.itemDueDate = "";
+                                $scope.itemIsCompleted = "";
+                            }
+
+
+                        };
+
+                        $scope.editItem = function (index) {
+
+                            if ($scope.changeIndex === -1) {
+
+
+                                $scope.changeIndex = index;
+                                $scope.editMode = true;
+
+                                $scope.itemName = $scope.items[index].name;
+                                $scope.itemDescription = $scope.items[index].description;
+                                $scope.itemDueDate = $scope.items[index].dueDate;
+                                $scope.itemIsCompleted = $scope.items[index].completed;
 
                             }
                         }
@@ -120,6 +160,11 @@
             <td>{{item.description}}</td>
             <td>{{item.dueDate}}</td>
             <td>{{showIsCompleted(item.completed)}}</td>
+            <td>
+                <div class="btn-group btn-group-lg" role="group">
+                    <button type="button" class="btn btn-primary" ng-click="editItem($index)">Edit</button>
+                </div>
+            </td>
         </tr>
     </table>
 
@@ -152,7 +197,9 @@
 
         <div>
             <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default" ng-click="addNewItem()">Add</button>
+                <button ng-if="!editMode" type="button" class="btn btn-default" ng-click="addNewItem()">Add</button>
+                <button ng-if="editMode" type="button" class="btn btn-primary" ng-click="saveChanges()">Save changes
+                </button>
             </div>
         </div>
 
