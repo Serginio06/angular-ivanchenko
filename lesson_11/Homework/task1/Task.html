@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="toDoModule">
+<head>
+    <title>ToDo List (Task2)</title>
+
+    <style>
+        th {
+            font-size: 18px;
+        }
+
+        #isCompleted {
+            width: 20px;
+            height: 20px;
+        }
+
+        td {
+            font-size: 16px;
+        }
+
+        .btn-group-lg {
+            margin-top: 15px;
+        }
+
+        .input-group{
+            width: 100%;
+        }
+    </style>
+    <link href="../../Libraries/bootstrap.css" rel="stylesheet"/>
+    <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet"/>
+
+    <script src="../../Libraries/angular.js"></script>
+    <script>
+
+        var defaultList = [
+            {
+                name: 'Купить молоко',
+                description: 'Сходить на рынок и купить молоко',
+                date: '2/18/2015',
+                completed: false
+            },
+            {
+                name: 'Посмотреть видео урок по AngularJS',
+                description: 'Досмотреть до конца урок',
+                date: '2/18/2015',
+                completed: false
+            }
+        ];
+
+        // Добавьте AngularJS контроллер
+
+        (
+                function () {
+
+                    angular.module ('toDoModule', [])
+                           .controller ('ToDoCtrl', ToDoCtrl);
+
+
+                    ToDoCtrl.$inject = ['$scope'];
+                    function ToDoCtrl($scope) {
+                        $scope.items = defaultList;
+                        $scope.itemName = "";
+                        $scope.itemDescription = "";
+                        $scope.itemDueDate = "";
+                        $scope.itemIsCompleted = "";
+
+                        $scope.showIsCompleted = function (isCompleted) {
+
+                            return isCompleted ? "Да" : "";
+                        };
+
+                        $scope.addNewItem = function () {
+
+                            if ($scope.itemName != "" && $scope.itemDescription != "" && $scope.itemDueDate != "") {
+
+                                var obj = {};
+
+                                obj.name = $scope.itemName;
+                                obj.description = $scope.itemDescription;
+                                obj.date = $scope.itemDueDate;
+                                obj.completed = $scope.itemIsCompleted;
+
+                                $scope.items.push (obj);
+
+                                $scope.itemName = "";
+                                $scope.itemDescription = "";
+                                $scope.itemDueDate = "";
+                                $scope.itemIsCompleted = "";
+
+                            }
+                        }
+
+
+                    }
+
+                }
+        ) ();
+
+
+    </script>
+
+
+</head>
+<body ng-controller="ToDoCtrl">
+
+<div class="container">
+
+    <h3>ToDo List</h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Completed</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="item in items">
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.date}}</td>
+            <td>{{showIsCompleted(item.completed)}}</td>
+        </tr>
+    </table>
+
+    <div>
+
+        <!-- Форма для добавления новых задач -->
+
+        <h4><label for="Name">Name</label></h4>
+        <div class="input-group input-group-lg">
+            <input type="text" ng-model="itemName" class="form-control" id="Name" aria-describedby="Name">
+        </div>
+
+        <h4><label for="DueDate">Due Date</label></h4>
+        <div class="input-group input-group-lg">
+            <input type="text" ng-model="itemDueDate" class="form-control" id="DueDate" aria-describedby="DueDate">
+        </div>
+
+        <h4><label for="Description">Description</label></h4>
+        <div class="input-group input-group-lg">
+                <textarea class="form-control" ng-model="itemDescription" name="Description" id="Description" cols="30"
+                          rows="3"
+                          aria-describedby="Description"></textarea>
+        </div>
+
+        <h4><label for="isCompleted">Completed</label></h4>
+        <div class="input-group input-group-lg">
+            <input type="checkbox" aria-label="isCompleted" id="isCompleted" ng-model="itemIsCompleted"
+                   style="width: 20px; height: 20px;">
+        </div>
+
+        <div>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="addNewItem()">Add</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
