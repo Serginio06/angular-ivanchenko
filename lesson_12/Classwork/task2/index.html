@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../../Libraries/bootstrap.css" rel="stylesheet"/>
+    <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet"/>
+    <style>
+        *{
+            font-size: 18px;
+        }
+        body{
+            min-width: 550px;
+            overflow-x: scroll;
+        }
+        h3{
+            text-align: center;
+        }
+        .toCapital {
+            text-transform: capitalize;
+        }
+    </style>
+
+    <script src="../../Libraries/angular.js"></script>
+    <script src="module.js"></script>
+    <script src="controller.js"></script>
+
+    <title>Table with items</title>
+</head>
+<body>
+<div ng-controller="MainCtrl">
+    <div class="container">
+        <div class="panel panel-default">
+            <h3>Annual report</h3>
+            <table class="table">
+                <thead>
+                <tr class="bg-primary" >
+                    <th>#</th>
+                    <th ng-switch on="showColumn.name"><div ng-switch-when="true">Name</div></th>
+                    <th ng-switch on="showColumn.price"><div ng-switch-when="true">Price</div></th>
+                    <th ng-switch on="showColumn.category"><div ng-switch-when="true">Category</div></th>
+                    <th ng-switch on="showColumn.count"><div ng-switch-when="true">Count</div></th>
+                    <th ng-switch on="showColumn.tax"><div ng-switch-when="true">Tax</div></th>
+                    <th ng-switch on="showColumn.expiration"><div ng-switch-when="true">Expiration</div></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in items" ng-class-odd="'bg-info'">
+                    <td>{{$index+1}}</td>
+                    <td ng-switch on="showColumn.name"><div ng-switch-when="true">{{item.name}}</div></td>
+                    <td ng-switch on="showColumn.price"><div ng-switch-when="true">{{item.price | currency : '£'}}</div></td>
+                    <td ng-switch on="showColumn.category"><div ng-switch-when="true">{{item.category}}</div></td>
+                    <td ng-switch on="showColumn.count"><div ng-switch-when="true">{{item.count}}</div></td>
+                    <td ng-switch on="showColumn.tax"><div ng-switch-when="true">{{item.tax | currency : '£'}}</div></td>
+                    <td ng-switch on="showColumn.expiration"><div ng-switch-when="true">{{item.expiration}}</div></td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>Choose table columns to display</h3>
+            <table class="table table-bordered">
+                <thead>
+                <tr class="alert-warning">
+                    <th>Columns</th>
+                    <th>Show</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="toCapital" ng-repeat="(key, value) in items[0]">
+                    <td>{{key}}</td>
+                    <td><input type="checkbox" ng-model="showColumn[key]" ></td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

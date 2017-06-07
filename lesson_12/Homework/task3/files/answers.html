@@ -1,0 +1,8 @@
+<div class="input-group" ng-repeat="answer in questinary[selectedQuestion].answers">
+                <span class="input-group-addon">
+                    <input type="radio" aria-label="Answer " +{{$index+1}}
+                           ng-model="$parent.selectedAnswer[selectedQuestion]"
+                           value="{{$index}}">
+                </span>
+    <input type="text" class="form-control" aria-label="..." value="{{answer}}">
+</div>

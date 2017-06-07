@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="calculatorModule">
+<head>
+    <title>ToDo List (Task2)</title>
+
+
+    <link href="../../Libraries/bootstrap.css" rel="stylesheet"/>
+    <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet"/>
+    <style>
+        * {
+            font-size: 18px !important;
+        }
+
+        body {
+            min-width: 550px;
+            overflow-x: scroll;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        input[type='radio']:after {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: #d1d3d1;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 2px solid white;
+        }
+
+        input[type='radio']:checked:after {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            top: -2px;
+            left: -1px;
+            position: relative;
+            background-color: #ffa500;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 2px solid white;
+        }
+
+    </style>
+
+
+    <!--<script src="../../Libraries/angular.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="module.js"></script>
+    <script src="controller.js"></script>
+
+
+</head>
+<body ng-controller="MainCtrl">
+
+<div class="container">
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Questions</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="input-group" ng-repeat="item in questinary">
+                <span class="input-group-addon">
+                    <input type="radio" aria-label="Question " +{{$index+1}} ng-model="$parent.selectedQuestion"
+                           value="{{$index}}" ng-checked="$index == 0">
+                </span>
+                <input type="text" class="form-control" aria-label="..." value="{{item.question}}">
+            </div>
+
+
+            <div class="well-lg">
+                <h3>Answers</h3>
+                <div ng-switch="selectedQuestion">
+
+                    <div ng-switch-when="0">
+                        <ng-include src="'files/answers.html'"></ng-include>
+                    </div>
+
+                    <div ng-switch-when="1">
+                        <ng-include src="'files/answers.html'"></ng-include>
+                    </div>
+                    <div ng-switch-when="2">
+                        <ng-include src="'files/answers.html'"></ng-include>
+                    </div>
+                    <div ng-switch-when="3">
+                        <ng-include src="'files/answers.html'"></ng-include>
+                    </div>
+                    <div ng-switch-when="4">
+                        <ng-include src="'files/answers.html'"></ng-include>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="panel-footer">
+    <div class="text-center">
+        <button class="btn btn-primary" ng-click="checkResult()">Check answers</button>
+    </div>
+    <div ng-switch on="result" class="well-lg">
+        <div ng-switch-when="true">
+            <div class="alert alert-success" role="alert">Well done! Congratulation!</div>
+            <!--You are right! Congratulation!-->
+        </div>
+        <div ng-switch-when="false">
+            <div class="alert alert-danger" role="alert">Bad luck. Try later</div>
+
+        </div>
+        <div ng-switch-default>
+
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
