@@ -1,3 +1,7 @@
+// Условия Задачи:
+// Перепишите код предыдущей задачи с использованием директивы ng-include
+
+
 myModule.controller ('MainCtrl', MainCtrl);
 
 MainCtrl.$inject = ['$scope'];

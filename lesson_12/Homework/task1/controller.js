@@ -1,4 +1,11 @@
-calculatorModule.controller ('MainCtrl', MainCtrl);
+// Условия Задачи:
+// Создайте приложение-калькулятор.
+//     В приложении должно быть два поля ввода и кнопки «+», «-», «*», «/».
+// Реализуйте двунаправленную привязку таким образом, чтобы при нажатии на кнопки результат
+// арифметических операций выводился на странице.
+
+
+                                                                                                                                                                                                                                            calculatorModule.controller ('MainCtrl', MainCtrl);
 
 MainCtrl.$inject = ['$scope'];
 function MainCtrl($scope) {
