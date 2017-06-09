@@ -1,1 +1,0 @@
-var calculatorModule = angular.module('calculatorModule',[]);

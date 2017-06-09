@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="MyModule">
+<head>
+    <title>ToDo List (Task2)</title>
+
+
+    <link href="../../Libraries/bootstrap.css" rel="stylesheet"/>
+    <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet"/>
+    <style>
+
+        body {
+            min-width: 550px;
+        }
+
+        h3 {
+            text-align: left;
+            color: #2a6496;
+            padding: 10px 15px;
+        }
+
+        form .ng-valid.ng-dirty {
+            background-color: #e0ffe2;
+        }
+
+        form .ng-invalid.ng-dirty {
+            background-color: #efbfc0;
+        }
+
+        .input-group {
+            padding-bottom: 10px;
+            margin-left: 10px;
+        }
+
+        .alert {
+            height: 30px;
+            padding-top: 5px;
+        }
+
+        #wrap {
+            width: 500px;
+            margin: auto;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+
+    </style>
+
+    <script src="../../Libraries/angular.js"></script>
+    <script src="module.js"></script>
+    <script src="controller.js"></script>
+
+
+</head>
+<body ng-controller="MainCtrl">
+
+<div class="container" id="wrap">
+    <div class="panel panel-primary">
+        <h3>Please enter your data to register</h3>
+        <form name="newUserForm" ng-submit="submitUserForm(newUserForm.$valid)">
+            <div class="well">
+
+
+                <div class="form-group">
+
+                    <label>Name</label>
+                    <input name="userName" type="text" ng-model="newUser.userName" required ng-pattern="nameRegEx"
+                           ng-blur="isUserValide = newUserForm.userName.$invalid && newUserForm.userName.$dirty"
+                           class="input-lg form-control"
+                           placeholder="Sergii Ivanchenko" aria-describedby="userName">
+                </div>
+
+                <div class="alert alert-danger" ng-show="isUserValide"
+                     role="alert">
+                    Enter a valid name
+                </div>
+
+
+                <div class="form-group">
+                    <!--<span class="input-group-addon" id="userEmail">E-mail</span>-->
+                    <label>Email</label>
+                    <input name="userEmail" type="email" ng-model="newUser.userEmail" required
+
+                           class="input-lg form-control"
+                           ng-blur="isEmailValide = newUserForm.userEmail.$invalid && newUserForm.userEmail.$dirty"
+                           placeholder="Sergii@example.com" aria-describedby="userEmail">
+
+                </div>
+                <div class="alert alert-danger" ng-show="isEmailValide"
+                     role="alert">
+                    Enter a valid email address
+                </div>
+
+                <div class="form-group">
+
+                    <label>Phone</label>
+                    <input name="userPhone" type="phone" ng-model="newUser.userPhone"  ng-pattern="phoneRegEx"
+                           class="input-lg form-control"
+                           ng-blur="isPhoneValide = newUserForm.userPhone.$invalid && newUserForm.userPhone.$dirty"
+                           placeholder="123-456" aria-describedby="userPhone">
+                </div>
+                <div class="alert alert-danger" ng-show="isPhoneValide"
+                     role="alert">
+                    Enter a valid phone number
+                </div>
+
+                <div class="form-group">
+
+                    <label>Password</label>
+                    <input name="userPass1" type="password" ng-model="newUser.userPass1" required ng-pattern="passwordRegEx"
+                           class="input-lg form-control"
+                           ng-blur="isPass1Valide = newUserForm.userPass1.$invalid && newUserForm.userPass1.$dirty"
+                           placeholder="123-456" aria-describedby="userPass1">
+                </div>
+                <div class="alert alert-danger" ng-show="isPass1Valide"
+                     role="alert">
+                    Passwords should have 6 or more characters
+                </div>
+
+                <div class="form-group">
+
+                    <label>Repeat password</label>
+                    <input name="userPass2" type="password" ng-model="newUser.userPass2" required ng-pattern="passwordRegEx"
+                           class="input-lg form-control"
+                           ng-blur="isPass2Equal(newUserForm.userPass2.$invalid, newUserForm.userPass2.$dirty)"
+                           placeholder="123-456" aria-describedby="userPass2">
+                </div>
+                <div class="alert alert-danger" ng-show="isPass2Valide"
+                     role="alert">
+                    Passwors should have 6 or more characters and be equal
+                </div>
+            </div>
+            <div class="well-lg">
+
+                <button type="submit" ng-disabled="myForm.$invalid" class="btn btn-lg center-block"
+                        ng-class="submitBtnClass" ng-click="submitUserForm(newUserForm.$valid)">Send
+                </button>
+
+            </div>
+
+        </form>
+        <div class="well" ng-if="message">
+            <span>{{message}}</span>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
