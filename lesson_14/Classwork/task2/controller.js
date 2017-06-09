@@ -7,6 +7,7 @@
 myModule.controller ('MainCtrl', MainCtrl);
 myModule.provider ('MainService', MainServiceProvider);
 
+// =========== CONTROLLERS ==================
 MainCtrl.$inject = ['$scope', 'MainService'];
 function MainCtrl($scope, MainService) {
 
@@ -15,6 +16,7 @@ function MainCtrl($scope, MainService) {
     }
 }
 
+// =========== SERVICES ==================
 function MainService() {
     var service = this;
     service.counter = 1;
@@ -24,6 +26,7 @@ function MainService() {
     }
 }
 
+// =========== PROVIDERS ==================
 function MainServiceProvider() {
     var provider = this;
 

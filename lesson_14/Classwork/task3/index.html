@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../../Libraries/bootstrap.css" rel="stylesheet"/>
+    <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet"/>
+    <style>
+
+
+
+    </style>
+
+    <script src="../../Libraries/angular.js"></script>
+    <script src="module.js"></script>
+    <script src="controller.js"></script>
+
+    <title>Table with items</title>
+</head>
+<body>
+<div ng-controller="MainCtrl">
+    <div class="container">
+
+        <div class="panel panel-danger">
+            <div class="well-lg">
+                <button class="btn btn-primary" ng-click="getFileData()">Get data</button>
+            </div>
+        </div>
+        <div class="well-lg" ng-if="items[0]">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th><h4>Name</h4></th>
+                    <th><h4>Price</h4></th>
+                </tr>
+                </thead>
+                <tr ng-repeat="item in items">
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

@@ -7,6 +7,7 @@
 myModule.controller ('MainCtrl', MainCtrl);
 myModule.factory ('MainServiceFactory', MainServiceFactory);
 
+// =========== CONTROLLERS ==================
 MainCtrl.$inject = ['$scope', 'MainServiceFactory'];
 function MainCtrl($scope, MainServiceFactory) {
 
@@ -18,6 +19,7 @@ function MainCtrl($scope, MainServiceFactory) {
 
 }
 
+// =========== SERVICES ==================
 function MainService() {
     var service = this;
     service.counter = 1;
@@ -27,6 +29,7 @@ function MainService() {
     }
 }
 
+// =========== FACTORIES ==================
 function MainServiceFactory() {
     return function () {
         return new MainService ();
