@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="toDoModule">
+<head>
+    <title>ToDo List (Task2)</title>
+
+
+    <link href="../../Libraries/bootstrap.css" rel="stylesheet"/>
+    <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet"/>
+    <style>
+
+        body {
+            min-width: 550px;
+        }
+
+        h3 {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        p {
+            font-size: 20px;
+        }
+
+    </style>
+
+    <script src="../../Libraries/angular.js"></script>
+    <script src="module.js"></script>
+    <script src="controller.js"></script>
+
+
+</head>
+<body ng-controller="ToDoCtrl">
+
+<div class="container">
+
+    <h3>ToDo List</h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Completed</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="item in items">
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.dueDate}}</td>
+            <td>{{showIsCompleted(item.completed)}}</td>
+        </tr>
+    </table>
+
+    <div>
+
+        <!-- Форма для добавления новых задач -->
+
+        <h4><label for="Name">Name</label></h4>
+        <div class="input-group input-group-lg">
+            <input type="text" ng-model="itemName" class="form-control" id="Name" aria-describedby="Name">
+        </div>
+
+        <h4><label for="DueDate">Due Date</label></h4>
+        <div class="input-group input-group-lg">
+            <input type="text" ng-model="itemDueDate" class="form-control" id="DueDate" aria-describedby="DueDate">
+        </div>
+
+        <h4><label for="Description">Description</label></h4>
+        <div class="input-group input-group-lg">
+                <textarea class="form-control" ng-model="itemDescription" name="Description" id="Description" cols="30"
+                          rows="3"
+                          aria-describedby="Description"></textarea>
+        </div>
+
+        <h4><label for="isCompleted">Completed</label></h4>
+        <div class="input-group input-group-lg">
+            <input type="checkbox" aria-label="isCompleted" id="isCompleted" ng-model="itemIsCompleted"
+                   style="width: 20px; height: 20px;">
+        </div>
+
+        <div>
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-default" ng-click="addNewItem()">Add</button>
+            </div>
+        </div>
+        <div class="panel panel-primary" ng-if="newItemSent" >
+            <h3>Following object was sent on the server</h3>
+            <p>{{newItemObj}}</p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
