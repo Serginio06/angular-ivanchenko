@@ -8,7 +8,7 @@ myModule.controller ('MainCtrl', MainCtrl);
 myModule.factory ('MainServiceFactory', MainServiceFactory);
 
 // =========== CONTROLLERS ==================
-MainCtrl.$inject = ['$scope', 'MainServiceFactory'];
+MainCtrl.$inject = ['$scope', 'DivisionService'];
 function MainCtrl($scope, MainServiceFactory) {
 
     var mainService = MainServiceFactory();
