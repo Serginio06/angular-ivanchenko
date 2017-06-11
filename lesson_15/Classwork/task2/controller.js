@@ -9,8 +9,8 @@ myModule.controller ('MainCtrl', MainCtrl);
 
 
 // =========== CONTROLLERS ==================
-MainCtrl.$inject = ['$scope', '$interpolate','$interpolate'];
-function MainCtrl($scope, $interpolate, $interpolate) {
+MainCtrl.$inject = ['$scope', '$interpolate'];
+function MainCtrl($scope, $interpolate, ) {
 
     $scope.welcomeUser = function () {
 

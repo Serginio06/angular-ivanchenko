@@ -7,22 +7,10 @@
 
 
 myModule.controller ('MainCtrl', MainCtrl);
-// myModule.directive('myTag',myTag);
-//
-// function myTag() {
-//     ddo = {
-//         restict:"E",
-//         scope:{'guestname':'@'},
-//         template:'<div class="alert alert-success" role="alert">Hello my name is <strong>{{guestname}}</strong>.</div>',
-//         replace:true
-//     };
-//     return ddo;
-//
-// }
 
 // =========== CONTROLLERS ==================
-MainCtrl.$inject = ['$scope', '$interpolate','$compile'];
-function MainCtrl($scope, $interpolate, $compile) {
+MainCtrl.$inject = ['$scope', '$compile'];
+function MainCtrl($scope,  $compile) {
 
     $scope.welcomeUser = function () {
 
