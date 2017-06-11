@@ -1,0 +1,23 @@
+{
+  "name": "sergii",
+  "version": "1.0.0",
+  "description": "Lesson 15 test task 3",
+  "main": "controller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Serginio06/angular-ivanchenko.git"
+  },
+  "keywords": [
+    "angular",
+    "$anchorScroll"
+  ],
+  "author": "Sergii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Serginio06/angular-ivanchenko/issues"
+  },
+  "homepage": "https://github.com/Serginio06/angular-ivanchenko#readme"
+}
