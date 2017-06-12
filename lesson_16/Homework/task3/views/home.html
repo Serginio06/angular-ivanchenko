@@ -1,0 +1,12 @@
+﻿<form name="contactForm">
+ <label>username:   <input type="text" class="input-lg" name="userName"/></label>
+ <label>age:   <input type="text" class="input-lg" name="age" /></label>
+ <label>email: <input type="email" class="input-lg" name="userEmail" /></label>
+    <label>employed: <input type="checkbox" name="employed"></label>
+</form>
+<div class="panel well-lg panel-primary">
+    <h3>Employees:</h3>
+    <ul>
+        <li ng-repeat="employee in people"><a href="contact/{{employee.name}}/{{employee.age}}/{{employee.email}}">{{employee.name}}</a></li>
+    </ul>
+</div>

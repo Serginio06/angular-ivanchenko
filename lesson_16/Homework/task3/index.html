@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myModule">
+<head>
+    <title>Routing in AngularJS</title>
+    <!--<base href="http://localhost:63342/angular_dinamikaDevelopment/lesson_16/Homework/task2/index.html">-->
+    <base href="/" />
+    <link href="../../Libraries/bootstrap.css" rel="stylesheet"/>
+    <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet"/>
+    <style>
+        body{
+            min-width: 550px;
+        }
+
+        h3{
+            text-align: center;
+        }
+
+        .result-label {
+            font-size:18px ;
+        }
+
+    </style>
+
+    <script src="../../Libraries/angular.js"></script>
+    <script src="../../Libraries/angular_route.js"></script>
+    <script src="module.js"></script>
+    <script src="controller.js"></script>
+
+</head>
+<body ng-controller="MainCtrl">
+
+<div class="container">
+    <div class="panel panel-primary well">
+        <ul class="nav nav-tabs">
+            <li><a href="home">Home</a></li>
+            <li><a href="contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="panel" ng-view></div>
+
+</div>
+</body>
+</html>
