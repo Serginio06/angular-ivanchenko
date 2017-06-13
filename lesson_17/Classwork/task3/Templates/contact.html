@@ -1,0 +1,24 @@
+﻿<div class="panel well">
+    <form name="contactForm">
+        <label>Username: <input type="text" class="input-lg form-control" name="userName"
+                                ng-model="newUser.userName"
+                                required
+                                ng-pattern="nameRegEx"
+                                ng-class="contactForm.userName.$invalid && contactForm.userName.$dirty"/></label><br/>
+        <label>Login: <input type="text" class="input-lg form-control" name="userLogin" ng-model="newUser.userlogin"
+                             required
+                             ng-pattern="userLoginRegEx"
+                             ng-class="contactForm.userLogin.$invalid && contactForm.userLogin.$dirty"/></label><br/>
+        <label>Password: <input type="password" class="input-lg form-control" name="userPassword"
+                                ng-model="newUser.userPassword"
+                                required
+                                ng-pattern="userPassRegEx"
+                                ng-class="contactForm.userPassword.$invalid && contactForm.userPassword.$dirty"/></label><br/>
+        <label>Email: <input type="email" class="input-lg form-control" name="userEmail" ng-model="newUser.userEmail"
+                             required
+                             ng-pattern="userEmailRegEx"
+                             ng-class="contactForm.userEmail.$invalid && contactForm.userEmail.$dirty"/></label><br/>
+        <input type="submit" ng-disabled="contactForm.$invalid" class="btn-lg btn-primary center-block"
+               ng-class="submitBtnClass" ng-click="submitUserForm(newUserForm.$valid)">
+    </form>
+</div>

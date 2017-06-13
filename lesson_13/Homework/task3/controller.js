@@ -24,7 +24,7 @@ function MainCtrl($scope) {
     $scope.submitBtnClass = "btn-default";
     $scope.message = "";
 
-    $scope.isFormValide =
+    // $scope.isFormValide =
 
     $scope.isPass2Equal = function (invalide, dirty) {
         $scope.isPass2Valide = !(!invalide && dirty && ($scope.newUser.userPass1 === $scope.newUser.userPass2));
