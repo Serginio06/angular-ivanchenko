@@ -22,7 +22,7 @@ function myTag() {
 
 Routes.$inject = ['$routeProvider'];
 function Routes($routeProvider) {
-    $routeProvider.when('/views/:index', { template: '<h4>{{dishDescr}}</h4>', controller: CMSController });
+    $routeProvider.when('/views/:index', { template: '<h4>{{itemPrice}}</h4>', controller: CMSController });
 
 }
 
@@ -56,6 +56,6 @@ CMSController.$inject = ['$scope', '$route', '$routeParams'];
 function CMSController($scope, $route, $routeParams) {
     // $route.current.templateUrl = '/pages/' + $routeParams.name + ".html";
 
-    $scope.dishDescr = $scope.menuItems[$routeParams.index].description;
+    $scope.itemPrice = $scope.menuItems[$routeParams.index].description;
 }
 
