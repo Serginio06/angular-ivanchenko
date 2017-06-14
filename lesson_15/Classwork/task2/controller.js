@@ -15,7 +15,7 @@ function MainCtrl($scope, $interpolate, ) {
     $scope.welcomeUser = function () {
 
 
-        var fn = $interpolate ('<div class="alert alert-success" role="alert">Hello my name is {{guestname}}.</div>');
+        var fn = $interpolate ('<div class="alert alert-success" role="alert">Hello, my name is {{guestname}}.</div>');
         var data = { guestname: "<strong>Ivan</strong>" };
 
 
