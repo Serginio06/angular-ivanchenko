@@ -1,0 +1,9 @@
+<ul class="list-group" ng-repeat="item in items">
+    <li class="list-group-item list-header">Item {{$index+1}}</li>
+    <li class="list-group-item list-option">Name: {{item.name}}</li>
+    <li class="list-group-item list-option">Price: {{item.price | currency}}</li>
+    <li class="list-group-item list-option">Category: {{item.category }}</li>
+    <li class="list-group-item list-option">Count: {{item.count }}</li>
+    <li class="list-group-item list-option">Tax: {{item.tax | currency}}</li>
+    <li class="list-group-item list-option">Expiration: {{item.expiration}}</li>
+</ul>

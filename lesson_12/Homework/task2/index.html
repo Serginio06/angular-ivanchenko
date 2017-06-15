@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="calculatorModule">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myModule">
 <head>
     <title>ToDo List (Task2)</title>
 
@@ -80,37 +80,12 @@
 
         <div ng-switch="selected">
             <div ng-switch-when="Table" class="well-lg">
-                <h4>Table</h4>
-                <table class="table table-bordered">
-                    <thead>
-                    <tr class="bg-primary">
-                        <th>#</th>
-                        <th ng-repeat="(key,value) in items[0]">{{key}}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="item in items" ng-class-odd="'odd-row'">
-                        <td>{{$index+1}}</td>
-                        <td>{{item.name}}</td>
-                        <td>{{item.price | currency}}</td>
-                        <td>{{item.category}}</td>
-                        <td>{{item.count}}</td>
-                        <td>{{item.tax | currency}}</td>
-                        <td>{{item.expiration}}</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <!--table-->
+                <table-data></table-data>
             </div>
             <div ng-switch-when="List" class="well-lg">
-                <ul class="list-group" ng-repeat="item in items">
-                    <li class="list-group-item list-header">Item {{$index+1}}</li>
-                    <li class="list-group-item list-option">Name: {{item.name}}</li>
-                    <li class="list-group-item list-option">Price: {{item.price | currency}}</li>
-                    <li class="list-group-item list-option">Category: {{item.category }}</li>
-                    <li class="list-group-item list-option">Count: {{item.count }}</li>
-                    <li class="list-group-item list-option">Tax: {{item.tax | currency}}</li>
-                    <li class="list-group-item list-option">Expiration: {{item.expiration}}</li>
-                </ul>
+               <!--list-->
+                <list-data></list-data>
             </div>
         </div>
     </div>

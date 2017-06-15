@@ -2,7 +2,7 @@
 // Создайте сервис, который предоставляет стандартные математические
 // операции – сложение, умножение и т.д. Используйте три разных способа для создания сервиса.
 
-calculatorModule.controller ('MainCtrl', MainCtrl);
+myModule.controller ('MainCtrl', MainCtrl);
 // calculatorModule.service ('MainService', MainService);
 // calculatorModule.factory ('DivisionService', DivisionServiceFactory);
 // calculatorModule.provider ('MultiplicationService', MultiplicationServiceProvider);

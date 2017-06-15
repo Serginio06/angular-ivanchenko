@@ -8,7 +8,7 @@
 //
 
 
-calculatorModule.controller ('MainCtrl', MainCtrl);
+myModule.controller ('MainCtrl', MainCtrl);
 
 
 MainCtrl.$inject = ['$scope'];

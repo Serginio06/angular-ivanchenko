@@ -2,10 +2,10 @@
 // Создайте сервис, который предоставляет стандартные математические
 // операции – сложение, умножение и т.д. Используйте три разных способа для создания сервиса.
 
-calculatorModule.controller ('MainCtrl', MainCtrl);
-calculatorModule.service ('MainService', MainService);
-calculatorModule.factory ('DivisionService', DivisionServiceFactory);
-calculatorModule.provider ('MultiplicationService', MultiplicationServiceProvider);
+myModule.controller ('MainCtrl', MainCtrl);
+myModule.service ('MainService', MainService);
+myModule.factory ('DivisionService', DivisionServiceFactory);
+myModule.provider ('MultiplicationService', MultiplicationServiceProvider);
 
 //============== CONTROLLER ===============
 MainCtrl.$inject = ['$scope', 'MainService', 'DivisionService', 'MultiplicationService'];

@@ -5,7 +5,7 @@
 // арифметических операций выводился на странице.
 
 
-                                                                                                                                                                                                                                            calculatorModule.controller ('MainCtrl', MainCtrl);
+                                                                                                                                                                                                                                            myModule.controller ('MainCtrl', MainCtrl);
 
 MainCtrl.$inject = ['$scope'];
 function MainCtrl($scope) {

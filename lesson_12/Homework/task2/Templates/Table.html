@@ -1,0 +1,20 @@
+<h4>Table</h4>
+<table class="table table-bordered">
+    <thead>
+    <tr class="bg-primary">
+        <th>#</th>
+        <th ng-repeat="(key,value) in items[0]">{{key}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in items" ng-class-odd="'odd-row'">
+        <td>{{$index+1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price | currency}}</td>
+        <td>{{item.category}}</td>
+        <td>{{item.count}}</td>
+        <td>{{item.tax | currency}}</td>
+        <td>{{item.expiration}}</td>
+    </tr>
+    </tbody>
+</table>
