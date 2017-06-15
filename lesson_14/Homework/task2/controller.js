@@ -18,6 +18,13 @@ function ToDoCtrl($scope, ServerService) {
     $scope.itemIsCompleted = "";
     $scope.newItemSent = false;
 
+    //check regEx for ng-pattern
+    // $scope.itemNameRegEx = /(.*[a-z]){3,}/i;
+    $scope.itemNameRegEx = /(.){3,}/i;
+    $scope.itemDueDateRegEx = /^(0[1-9]|[12][0-9]|3[01])[\/.](?:(0[1-9]|1[012])[\/.](19|20)[0-9]{2})$/;
+    $scope.itemDescriptionRegEx = /(.){3,}/i;
+
+
     $scope.items = ServerService.getToDoList ();
 
     $scope.showIsCompleted = function (isCompleted) {
@@ -25,15 +32,21 @@ function ToDoCtrl($scope, ServerService) {
         return isCompleted ? "Да" : "";
     };
 
-    $scope.addNewItem = function () {
+    $scope.addNewItem = function (isValide) {
 
-        if ($scope.itemName != "" && $scope.itemDescription != "" && $scope.itemDueDate != "") {
-
+        if (isValide) {
             $scope.newItemObj = ServerService.addNewItem ($scope.itemName, $scope.itemDescription, $scope.itemDueDate, $scope.itemIsCompleted);
-
             $scope.newItemSent = true;
-
         }
+
+
+        // if ($scope.itemName != "" && $scope.itemDescription != "" && $scope.itemDueDate != "") {
+        //
+        //     $scope.newItemObj = ServerService.addNewItem ($scope.itemName, $scope.itemDescription, $scope.itemDueDate, $scope.itemIsCompleted);
+        //
+        //     $scope.newItemSent = true;
+        //
+        // }
     }
 
 
@@ -65,21 +78,18 @@ function ServerService($http) {
     };
 
     service.addNewItem = function (itemName, itemDescription, itemDueDate, itemIsCompleted) {
+            var obj = {};
 
-        var obj = {};
+            obj.name = itemName;
+            obj.description = itemDescription;
+            obj.dueDate = itemDueDate;
+            obj.completed = itemIsCompleted;
 
-        obj.name = itemName;
-        obj.description = itemDescription;
-        obj.dueDate = itemDueDate;
-        obj.completed = itemIsCompleted;
+            service.toDoList.push (obj);
 
-        service.toDoList.push (obj);
+            service.postNewListItem (obj);
 
-        service.postNewListItem (obj);
-
-        return obj;
-
-
+            return obj;
     };
 
     service.postNewListItem = function (newItem) {

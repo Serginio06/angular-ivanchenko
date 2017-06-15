@@ -16,9 +16,24 @@
             text-align: center;
             padding-bottom: 10px;
         }
+
         p {
             font-size: 20px;
         }
+
+        form .ng-valid.ng-dirty {
+            background-color: lawngreen;
+        }
+
+
+        form .ng-invalid.ng-dirty {
+            background-color: palevioletred;
+        }
+
+        textarea {
+            width: 90%;
+        }
+
 
     </style>
 
@@ -55,35 +70,41 @@
 
         <!-- Форма для добавления новых задач -->
 
-        <h4><label for="Name">Name</label></h4>
-        <div class="input-group input-group-lg">
-            <input type="text" ng-model="itemName" class="form-control" id="Name" aria-describedby="Name">
-        </div>
+        <!--<form name="newTaskForm" ng-submit="addNewItem(newTaskForm.$valid)">-->
+            <form name="newTaskForm" ng-submit="addNewItem(newTaskForm.$valid)" >
 
-        <h4><label for="DueDate">Due Date</label></h4>
-        <div class="input-group input-group-lg">
-            <input type="text" ng-model="itemDueDate" class="form-control" id="DueDate" aria-describedby="DueDate">
-        </div>
+            <h4><label for="Name">Name</label></h4>
+            <div class="input-group input-group-lg">
+                <input type="text" ng-model="itemName" name="itemName" class="form-control" id="Name" required
+                       ng-pattern="itemNameRegEx" aria-describedby="Name" placeholder="Выучить ПДД"
+                       ng-class="">
 
-        <h4><label for="Description">Description</label></h4>
-        <div class="input-group input-group-lg">
-                <textarea class="form-control" ng-model="itemDescription" name="Description" id="Description" cols="30"
-                          rows="3"
+            </div><span ng-show="newTaskForm.itemName.$invalid && newTaskForm.itemName.$dirty">Введите корректное описание</span>
+
+            <h4><label for="DueDate">Due Date</label></h4>
+            <div class="input-group input-group-lg">
+                <input type="text" ng-model="itemDueDate" name="itemDueDate" class="form-control" id="DueDate" required
+                       ng-pattern="itemDueDateRegEx" aria-describedby="DueDate" placeholder="20/06/2017">
+            </div><span ng-show="newTaskForm.itemDueDate.$invalid && newTaskForm.itemDueDate.$dirty">Введите дату в формате дд/мм/гггг</span>
+
+            <h4><label for="Description">Description</label></h4>
+            <div class="input-group input-group-lg">
+                <textarea class="form-control" ng-model="itemDescription" name="itemDescription" id="Description" required
+                          ng-pattern="itemDescriptionRegEx" cols="30"
+                          rows="3" placeholder="Пройти билеты по ПДД"
                           aria-describedby="Description"></textarea>
-        </div>
+            </div><span ng-show="newTaskForm.itemDescription.$invalid && newTaskForm.itemDescription.$dirty">Введите корректное описание</span>
 
-        <h4><label for="isCompleted">Completed</label></h4>
-        <div class="input-group input-group-lg">
-            <input type="checkbox" aria-label="isCompleted" id="isCompleted" ng-model="itemIsCompleted"
-                   style="width: 20px; height: 20px;">
-        </div>
-
-        <div>
-            <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-default" ng-click="addNewItem()">Add</button>
+            <h4><label for="isCompleted">Completed</label></h4>
+            <div class="input-group input-group-lg">
+                <input type="checkbox" aria-label="isCompleted" id="isCompleted" ng-model="itemIsCompleted"
+                       style="width: 20px; height: 20px;">
             </div>
-        </div>
-        <div class="panel panel-primary" ng-if="newItemSent" >
+            <div class="btn-group btn-group-lg" role="group">
+                <input type="submit" class="btn btn-primary" value="Add" ng-disabled="newTaskForm.$invalid">
+            </div>
+        </form>
+        <div class="panel panel-primary" ng-if="newItemSent">
             <h3>Following object was sent on the server</h3>
             <p>{{newItemObj}}</p>
         </div>
