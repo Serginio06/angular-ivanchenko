@@ -27,7 +27,7 @@ function MainCtrl($scope) {
     };
 
     $scope.getDivision = function () {
-        $scope.value2 == 0 ? $scope.result="NAN": $scope.result = $scope.value1 /  $scope.value2;
+        $scope.value2 == 0 ? $scope.result="Error! Division by Zero forbidden": $scope.result = $scope.value1 /  $scope.value2;
     }
 
 
