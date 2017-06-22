@@ -1,0 +1,11 @@
+<block-header content="blockHeaderItems[2]"></block-header>
+<div class="news__item" ng-repeat="item in news">
+    <div class="news__item--date">
+        <div class="news__item--day">{{item.newDate | date:'dd'}}
+            <div class="news__item--month">{{item.newDate | date:'MMMM'}}</div>
+        </div>
+    </div>
+    <div class="news__item--text"><p class="news__text">{{item.text}}</p>
+        <div class="news__read-more"><a class="news__read-more" href="#!article/{{$index}}">Read more</a></div>
+    </div>
+</div>

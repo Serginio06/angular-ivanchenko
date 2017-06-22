@@ -1,0 +1,13 @@
+<div class="achievements" id="achievements">
+    <div class="achievements_wrapper"
+         in-view="lineInView($inview)" in-view-options="{'offset':[-150]}">
+        <!--achievementsItems-->
+        <div class="achievements_item" ng-repeat="item in achievementsItems">
+            <img  class="achievements__img" ng-src="{{item.src}}"
+                  alt="{{item.name}}"
+            >
+            <h1 class="white_color achievements__item--value--h1">{{acievementValue[$index]}}</h1>
+            <h5 class="uppercase">{{item.name}}</h5>
+        </div>
+    </div>
+</div>

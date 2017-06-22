@@ -1,0 +1,143 @@
+
+<div class="services" id="services">
+    <div class="services__block1">
+        <div class="service__item" ng-click="serviceItemClick(1)">
+            <img class="service__img--web" src="/assets/images/icons/service_web.png" alt="web design service">
+            <h3 class="uppercase">Web design</h3>
+            <div class="service__line">
+                <hr class="service--hr--1" ng-class="serviceActiveItem.item1"/>
+                <hr class="service--hr--2"/>
+            </div>
+        </div>
+        <div class="service__item" ng-click="serviceItemClick(2)">
+            <img class="service__img--web" src="/assets/images/icons/service_graphic.png" alt="graphic design service">
+            <h3 class="uppercase">Graphic design</h3>
+            <div class="service__line">
+                <hr class="" ng-class="serviceActiveItem.item2"/>
+                <hr class="service--hr--2"/>
+            </div>
+        </div>
+
+        <div class="service__item" ng-click="serviceItemClick(3)">
+            <img class="service__img--web" src="/assets/images/icons/service_programming.png"
+                 alt="programing design service">
+            <h3 class="uppercase">Programing</h3>
+            <div class="service__line">
+                <hr class="" ng-class="serviceActiveItem.item3"/>
+                <hr class="service--hr--2"/>
+            </div>
+        </div>
+        <div class="service__item" ng-click="serviceItemClick(4)">
+            <img class="service__img--web" src="/assets/images/icons/service_photo.png"
+                 alt="photography design service">
+            <h3 class="uppercase">Photography</h3>
+            <div class="service__line">
+                <hr class="" ng-class="serviceActiveItem.item4"/>
+                <hr class="service--hr--2"/>
+            </div>
+        </div>
+        <div class="service__item_text" ng-switch on="serviceMenuItemsSelected">
+            <!--<div class="" ng-switch on="serviceMenuItemsSelected">-->
+            <div class="animate-switch-container">
+                <div class="animate-switch" ng-switch-when="web">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit.
+                        Aenean commodo ligula eget dolor. Aenean massa.</p>
+                </div>
+                <div class="animate-switch" ng-switch-when="graphic"><p>Cum sociis natoque penatibus et magnis dis
+                    parturient
+                    montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
+                    sem.</p>
+                </div>
+                <div class="animate-switch" ng-switch-when="programming"><p>Nulla consequat massa quis enim. Donec pede
+                    justo,
+                    fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis
+                    vitae, justo.</p>
+                </div>
+                <div class="animate-switch" ng-switch-when="photography"><p>Nullam dictum felis eu pede mollis pretium.
+                    Integer
+                    tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo
+                    ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra
+                    quis,
+                    feugiat</p>
+                </div>
+                <!--<div class="animate-switch" ng-switch-default>Settings Diva</div>-->
+
+            </div>
+        </div>
+    </div>
+    <div class="services__block2">
+        <div class="services__block2__buttons">
+            <button class="services__block2--btn uppercase" id="services__block2--btn--startTour"
+                    ng-click="goTo('portfolio')">start tour
+            </button>
+            <button class="services__block2--btn uppercase arrow_box" id="services__block2--btn--allDevices">for all
+                devices
+            </button>
+        </div>
+        <div class="services__block2__content">
+            <div class="service__block2--img-phones" id="service__block2--img-phones"></div>
+            <div class="service__block2--desctiption" id="service__block2--desctiption">
+                <h2>Fully Responsive</h2>
+                <p class="service__block2--description--text ">Nam quam nunc, blandit vel, luctus pulvinar, hendrerit
+                    id, lorem. Maecenas nec odio et ante tincidunt tempus.
+                    Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros
+                    faucibus
+                    tincidunt.</p>
+                <button class="services__block2--btn2 uppercase">get now</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="portfolio" id="portfolio">
+
+    <block-header content="blockHeaderItems[0]"></block-header>
+
+
+    <div class="portfolio__buttons--wrapper">
+        <button ng-repeat="item in portfolioMenuItems" class="portfolio__block2--btn2 uppercase"
+                ng-click="portfolioBtnClick(item)" ng-class="{'active': item.id == portfolioStates.activeItem}"
+        >
+            {{item.title}}
+        </button>
+    </div>
+
+    <div class="portfolio__img--wrapper">
+        <img ng-repeat="img in portfolioImg | filter:portfolioStates.portfoliofilter" class="portfolio__img--img"
+             ng-src="{{img.src}}"
+             alt="{{img.category}}"
+             ng-mouseover="portfolioShowPopup(img, $event)"
+             ng-mouseleave="portfolioHidePopup(img, $event)"
+             id="img-{{img.id}}">
+    </div>
+    <div id="portfolio__img--category--layer" ng-style="myStyle" ng-class="portfolio__img__class">
+        {{portfolio__img__category}}
+    </div>
+
+
+</div>
+
+<achievements></achievements>
+
+
+<div class="about" id="about">
+    <block-header content="blockHeaderItems[1]"></block-header>
+    <team-members></team-members>
+</div>
+
+
+<div class="news" id="news">
+    <news-block></news-block>
+
+</div>
+
+<div class="contacts" id="contacts">
+
+</div>
+
+
+

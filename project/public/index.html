@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en" ng-app="myModule">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/javascript/vendor/bootstrap-theme.css">
+    <link rel="stylesheet" href="assets/javascript/vendor/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animate-switch.css">
+    <script src="assets/javascript/vendor/angular.js"></script>
+    <script src="assets/javascript/vendor/angular_route.js"></script>
+    <script src="assets/javascript/vendor/angular-scroll.min.js"></script>
+    <script src="assets/javascript/vendor/angular-animate.js"></script>
+    <script src="assets/javascript/vendor/angular-inview.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700,800" rel="stylesheet">
+    <script src="assets/javascript/app.js"></script>
+
+
+    <title>KET</title>
+</head>
+<body onload="onLoad()" ng-controller="BodyCtrl">
+
+
+<div class="header" id="top">
+    <div class="header__title">
+        <div class="header__logo"></div>
+        <div class="header__menu" id="header__menu">
+            <ul>
+                <li class="header__menu--1 header__menu--items uppercase" ng-click="goTo('top')"><a href=""
+                                                                                                    id="firstMenuItem">Home</a>
+                </li>
+                <li class="header__menu--2 header__menu--items uppercase" ng-click="goTo('services')"><a
+                        href="">Services</a></li>
+                <li class="header__menu--3 header__menu--items uppercase" ng-click="goTo('portfolio')"><a href="">Portfolio</a>
+                </li>
+                <li class="header__menu--4 header__menu--items uppercase" ng-click="goTo('about')"><a href="">About</a></li>
+                <li class="header__menu--5 header__menu--items uppercase" ng-click="goTo('news')"><a href="">News</a></li>
+                <li class="header__menu--6 header__menu--items uppercase" ng-click="goTo('contacts')"><a href="">Contact</a></li>
+                <hr/>
+            </ul>
+            <a href="javascript:void(0);" id="header__menu--icon" onclick="menuIconClick()">&#9776;</a>
+        </div>
+    </div>
+    <div class="header--background">
+        <div class="header--elements">
+            <h1 class="uppercase">We make websites</h1>
+            <button class="header__button uppercase white_color">Start tour</button>
+        </div>
+    </div>
+
+</div>
+
+
+<!--<div class="header" id="top">-->
+    <!--<div class="header__title">-->
+        <!--<div class="header__logo"></div>-->
+        <!--<div class="header__menu" id="header__menu">-->
+            <!--<ul>-->
+                <!--<li class="header__menu&#45;&#45;1 header__menu&#45;&#45;items uppercase" ng-click="goTo('top')"><a href="#"-->
+                                                                                                    <!--id="firstMenuItem">Home</a>-->
+                <!--</li>-->
+                <!--<li class="header__menu&#45;&#45;2 header__menu&#45;&#45;items uppercase" ng-click="goTo('services')"><a-->
+                        <!--href="#">Services</a></li>-->
+                <!--<li class="header__menu&#45;&#45;3 header__menu&#45;&#45;items uppercase" ng-click="goTo('portfolio')"><a href="#">Portfolio</a>-->
+                <!--</li>-->
+                <!--<li class="header__menu&#45;&#45;4 header__menu&#45;&#45;items uppercase"><a href="#">About</a></li>-->
+                <!--<li class="header__menu&#45;&#45;5 header__menu&#45;&#45;items uppercase"><a href="#">News</a></li>-->
+                <!--<li class="header__menu&#45;&#45;6 header__menu&#45;&#45;items uppercase"><a href="#">Contact</a></li>-->
+                <!--<hr/>-->
+            <!--</ul>-->
+            <!--<a href="javascript:void(0);" id="header__menu&#45;&#45;icon" onclick="menuIconClick()">&#9776;</a>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="header&#45;&#45;background">-->
+        <!--<div class="header&#45;&#45;elements">-->
+            <!--<h1 class="uppercase">We make websites</h1>-->
+            <!--<button class="header__button uppercase white_color">Start tour</button>-->
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</div>-->
+<!--<div class="services" id="services">-->
+    <!--<div class="services__block1">-->
+        <!--<div class="service__item" ng-click="serviceItemClick(1)">-->
+            <!--<img class="service__img&#45;&#45;web" src="/assets/images/icons/service_web.png" alt="web design service">-->
+            <!--<h3 class="uppercase">Web design</h3>-->
+            <!--<div class="service__line">-->
+                <!--<hr class="service&#45;&#45;hr&#45;&#45;1" ng-class="serviceActiveItem.item1"/>-->
+                <!--<hr class="service&#45;&#45;hr&#45;&#45;2"/>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="service__item" ng-click="serviceItemClick(2)">-->
+            <!--<img class="service__img&#45;&#45;web" src="/assets/images/icons/service_graphic.png" alt="graphic design service">-->
+            <!--<h3 class="uppercase">Graphic design</h3>-->
+            <!--<div class="service__line">-->
+                <!--<hr class="" ng-class="serviceActiveItem.item2"/>-->
+                <!--<hr class="service&#45;&#45;hr&#45;&#45;2"/>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="service__item" ng-click="serviceItemClick(3)">-->
+            <!--<img class="service__img&#45;&#45;web" src="/assets/images/icons/service_programming.png"-->
+                 <!--alt="programing design service">-->
+            <!--<h3 class="uppercase">Programing</h3>-->
+            <!--<div class="service__line">-->
+                <!--<hr class="" ng-class="serviceActiveItem.item3"/>-->
+                <!--<hr class="service&#45;&#45;hr&#45;&#45;2"/>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="service__item" ng-click="serviceItemClick(4)">-->
+            <!--<img class="service__img&#45;&#45;web" src="/assets/images/icons/service_photo.png"-->
+                 <!--alt="photography design service">-->
+            <!--<h3 class="uppercase">Photography</h3>-->
+            <!--<div class="service__line">-->
+                <!--<hr class="" ng-class="serviceActiveItem.item4"/>-->
+                <!--<hr class="service&#45;&#45;hr&#45;&#45;2"/>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="service__item_text" ng-switch on="serviceMenuItemsSelected">-->
+            <!--&lt;!&ndash;<div class="" ng-switch on="serviceMenuItemsSelected">&ndash;&gt;-->
+            <!--<div class="animate-switch-container">-->
+                <!--<div class="animate-switch" ng-switch-when="web">-->
+                    <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing-->
+                        <!--elit.-->
+                        <!--Aenean commodo ligula eget dolor. Aenean massa.</p>-->
+                <!--</div>-->
+                <!--<div class="animate-switch" ng-switch-when="graphic"><p>Cum sociis natoque penatibus et magnis dis-->
+                    <!--parturient-->
+                    <!--montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,-->
+                    <!--sem.</p>-->
+                <!--</div>-->
+                <!--<div class="animate-switch" ng-switch-when="programming"><p>Nulla consequat massa quis enim. Donec pede-->
+                    <!--justo,-->
+                    <!--fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis-->
+                    <!--vitae, justo.</p>-->
+                <!--</div>-->
+                <!--<div class="animate-switch" ng-switch-when="photography"><p>Nullam dictum felis eu pede mollis pretium.-->
+                    <!--Integer-->
+                    <!--tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo-->
+                    <!--ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra-->
+                    <!--quis,-->
+                    <!--feugiat</p>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<div class="animate-switch" ng-switch-default>Settings Diva</div>&ndash;&gt;-->
+
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="services__block2">-->
+        <!--<div class="services__block2__buttons">-->
+            <!--<button class="services__block2&#45;&#45;btn uppercase" id="services__block2&#45;&#45;btn&#45;&#45;startTour"-->
+                    <!--ng-click="goTo('portfolio')">start tour-->
+            <!--</button>-->
+            <!--<button class="services__block2&#45;&#45;btn uppercase arrow_box" id="services__block2&#45;&#45;btn&#45;&#45;allDevices">for all-->
+                <!--devices-->
+            <!--</button>-->
+        <!--</div>-->
+        <!--<div class="services__block2__content">-->
+            <!--<div class="service__block2&#45;&#45;img-phones" id="service__block2&#45;&#45;img-phones"></div>-->
+            <!--<div class="service__block2&#45;&#45;desctiption" id="service__block2&#45;&#45;desctiption">-->
+                <!--<h2>Fully Responsive</h2>-->
+                <!--<p class="service__block2&#45;&#45;description&#45;&#45;text ">Nam quam nunc, blandit vel, luctus pulvinar, hendrerit-->
+                    <!--id, lorem. Maecenas nec odio et ante tincidunt tempus.-->
+                    <!--Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros-->
+                    <!--faucibus-->
+                    <!--tincidunt.</p>-->
+                <!--<button class="services__block2&#45;&#45;btn2 uppercase">get now</button>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+
+
+<!--<div class="portfolio" id="portfolio">-->
+
+    <!--<block-header content="blockHeaderItems[0]"></block-header>-->
+
+
+    <!--<div class="portfolio__buttons&#45;&#45;wrapper">-->
+        <!--<button ng-repeat="item in portfolioMenuItems" class="portfolio__block2&#45;&#45;btn2 uppercase"-->
+                <!--ng-click="portfolioBtnClick(item)" ng-class="{'active': item.id == portfolioStates.activeItem}"-->
+        <!--&gt;-->
+            <!--{{item.title}}-->
+        <!--</button>-->
+    <!--</div>-->
+
+    <!--<div class="portfolio__img&#45;&#45;wrapper">-->
+        <!--<img ng-repeat="img in portfolioImg | filter:portfolioStates.portfoliofilter" class="portfolio__img&#45;&#45;img"-->
+             <!--ng-src="{{img.src}}"-->
+             <!--alt="{{img.category}}"-->
+             <!--ng-mouseover="portfolioShowPopup(img, $event)"-->
+             <!--ng-mouseleave="portfolioHidePopup(img, $event)"-->
+             <!--id="img-{{img.id}}">-->
+    <!--</div>-->
+    <!--<div id="portfolio__img&#45;&#45;category&#45;&#45;layer" ng-style="myStyle" ng-class="portfolio__img__class">-->
+        <!--{{portfolio__img__category}}-->
+    <!--</div>-->
+
+
+<!--</div>-->
+
+<!--<achievements></achievements>-->
+
+
+<!--<div class="about" id="about">-->
+    <!--<block-header content="blockHeaderItems[1]"></block-header>-->
+    <!--<team-members></team-members>-->
+<!--</div>-->
+
+
+<!--<div class="news" id="news">-->
+    <!--<news-block></news-block>-->
+
+<!--</div>-->
+
+<!--<div class="contacts" id="contacts">-->
+
+<!--</div>-->
+
+
+<!--<div class="footer" id="footer">-->
+    <!--<button class="btn btn-primary" id="fixedbutton" ng-click="goTo('top')">-->
+        <!--Go to TOP-->
+    <!--</button>-->
+<!--</div>-->
+
+<div ng-view ></div>
+
+<div class="footer" id="footer">
+    <button class="btn btn-primary" id="fixedbutton" ng-click="goTo('top')">
+        Go to TOP
+    </button>
+</div>
+
+
+
+</body>
+</html>
