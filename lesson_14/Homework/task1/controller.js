@@ -65,7 +65,7 @@ function DivisionServiceFactory() {
     return function (val1, val2) {
 
         var output;
-        val2 == 0 ? output = "NAN" : output = val1 / val2;
+        val2 == 0 ? output = "Error! Division by Zero forbidden" : output = val1 / val2;
         return output;
     }
 }
