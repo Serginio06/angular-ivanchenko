@@ -23,16 +23,31 @@ function buttonCtrl($scope, $interval) {
 
     $scope.message = "Counter";
     $scope.counter = 0;
+    var myCounter;
 
     $scope.startCounter = function () {
 
         // start count from 0 each time button pressed
-        $scope.counter = 0;
-        $interval (function () {
-            $scope.counter++;
-        }, 1000);
 
 
+        if (  !myCounter ) {
+            $scope.counter = 0;
+            myCounter= $interval (function () {
+                $scope.counter++;
+            }, 1000);
+        }
+
+
+
+    };
+
+    $scope.stopCounter = function () {
+
+        console.log(myCounter);
+        if ( myCounter ) {
+        $interval.cancel(myCounter);
+            $scope.counter =0;
+        }
     }
 
 
