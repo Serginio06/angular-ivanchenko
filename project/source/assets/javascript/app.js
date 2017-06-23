@@ -23,8 +23,14 @@ var menuItemClick = function () {
 
 (
     function () {
+        // angular.module('app.config',[])
+        //        .value('app.config', {f
+        //            // basePath: '/' // Set your base path here
+        //            basePath: 'project/public/' // Set your base path here
+        //        });
         "use strict";
         angular.module ('myModule', ['duScroll', 'ngAnimate', 'angular-inview', 'ngRoute'])
+               .constant('path', {basePath: '/project/public/'})
                .controller ('BodyCtrl', BodyCtrl)
                .controller ('articleCtrl', articleCtrl)
                .service ('MainService', MainService)
@@ -33,42 +39,49 @@ var menuItemClick = function () {
                .directive ('blockHeader', blockHeader)
                .directive ('teamMembers', teamMembers)
                .directive ('newsBlock', newsBlock)
+               .directive ('contactForm',contactForm)
                .config (appConfig);
 
 // =================================== ROUTER ============================================
-        function appConfig($routeProvider) {
+        function appConfig($routeProvider,path) {
 
             $routeProvider
                 .when ('/', {
-                    templateUrl: '../assets/templates/main-content.html',
+                    // templateUrl: '../assets/templates/main-content.html',
+                    templateUrl: path.basePath+'assets/templates/main-content.html',
                 })
                 .when ('/news', {
                     template: '<news-block></news-block>'
                 })
                 .when ('/article/:id', {
                     // template:'<p>article id={{myId}} msg={{msg}} should be here</p>',
-                    templateUrl: '../assets/templates/news-article.html',
+                    templateUrl: path.basePath+'/assets/templates/news-article.html',
                     controller: 'articleCtrl'
                 })
                 .otherwise ({
                     redirectTo: '/'
                 });
+
+
+            
         }
 
 // ================================== DIRECTIVES ===========================================
-        function achievements() {
+        function achievements(path) {
             var ddo = {
-                templateUrl: '../assets/templates/achievements.html'
+                templateUrl: path.basePath+'/assets/templates/achievements.html'
             };
             return ddo;
         }
 
-        function blockHeader() {
+        function blockHeader(path) {
             var ddo = {
                 restrict: 'E',
-                templateUrl: '../assets/templates/block-header.html',
+                // templateUrl: '../assets/templates/block-header.html',
+                templateUrl: path.basePath+'/assets/templates/block-header.html',
                 scope: {
-                    content: '='
+                    content: '=',
+                    h2Color:'@'
                 },
                 replace: true
             };
@@ -76,17 +89,27 @@ var menuItemClick = function () {
             return ddo;
         }
 
-        function teamMembers() {
+        function teamMembers(path) {
             var ddo = {
                 restrict: 'E',
-                templateUrl: '../assets/templates/team-members.html'
+                // templateUrl: '../assets/templates/team-members.html'
+                templateUrl: path.basePath+'/assets/templates/team-members.html'
             };
             return ddo;
         }
 
-        function newsBlock() {
+        function newsBlock(path) {
             var ddo = {
-                templateUrl: '../assets/templates/news-block.html'
+                // templateUrl: '../assets/templates/news-block.html'
+                templateUrl: path.basePath+'/assets/templates/news-block.html'
+            };
+            return ddo;
+        }
+
+        function contactForm(path) {
+            var ddo = {
+                // templateUrl:'../assets/templates/contact-form.html'
+                templateUrl:path.basePath+'/assets/templates/contact-form.html'
             };
             return ddo;
         }
@@ -105,10 +128,10 @@ var menuItemClick = function () {
         }
 
 
-        BodyCtrl.$inject = ['$scope', '$anchorScroll', '$location', '$timeout', '$document', 'MainService', '$interval'];
-        function BodyCtrl($scope, $anchorScroll, $location, $timeout, $document, MainService, $interval) {
+        BodyCtrl.$inject = ['$scope', '$anchorScroll', '$location', '$timeout', '$document', 'MainService', '$interval','path'];
+        function BodyCtrl($scope, $anchorScroll, $location, $timeout, $document, MainService, $interval,path) {
 
-
+            $scope.basePath = path.basePath;
 
 
             //=============== Anchor smooth scroll =====================
@@ -143,12 +166,12 @@ var menuItemClick = function () {
 
                     $timeout (function () {
 
-                        var targetElement = angular.element (document.getElementById (id));
+                        targetElement = angular.element (document.getElementById (id));
 
                         if (targetElement.length > 0) {
                             $document.scrollToElement (targetElement, offset, duration);
                         } else {
-                            var targetElement = angular.element (document.getElementById ('top'));
+                            targetElement = angular.element (document.getElementById ('top'));
                             $document.scrollToElement (targetElement, offset, duration);
                         }
 
@@ -325,27 +348,27 @@ var menuItemClick = function () {
 
 // ================== SERVICES =========================
 
-        MainService.$inject = ['$http'];
-        function MainService($http) {
+        MainService.$inject = ['$http','$location','path'];
+        function MainService($http,$location,path) {
             var service = this;
 
 
             var socialIcons = [
                 {
                     name: 'facebook',
-                    src: 'assets/images/icons/facebook-active.png'
+                    src: path.basePath+'assets/images/icons/facebook-active.png'
                 },
                 {
                     name: 'google',
-                    src: 'assets/images/icons/google-active.png'
+                    src: path.basePath+'assets/images/icons/google-active.png'
                 },
                 {
                     name: 'tweeter',
-                    src: 'assets/images/icons/tweeter-active.png'
+                    src: path.basePath+'assets/images/icons/tweeter-active.png'
                 },
                 {
                     name: 'dribble',
-                    src: 'assets/images/icons/dribble-active.png'
+                    src: path.basePath+'assets/images/icons/dribble-active.png'
                 },
 
             ];
@@ -356,28 +379,28 @@ var menuItemClick = function () {
                     name: 'John Doe',
                     position: 'Graphic designer',
                     description: 'Tincidunt. Cras dapibus. Aenean leo ligula',
-                    src: 'assets/images/mobile/member1.jpeg'
+                    src: path.basePath+'assets/images/mobile/member1.jpeg'
                 },
                 {
                     id: 2,
                     name: 'Sarah L. Hitz',
                     position: 'Frontend developer',
                     description: 'Montes, nascetur ridiculus mus. pellentesque eu',
-                    src: 'assets/images/mobile/member2.jpeg'
+                    src: path.basePath+'assets/images/mobile/member2.jpeg'
                 },
                 {
                     id: 3,
                     name: 'Dale P. Pitchford',
                     position: 'Frontend developer',
                     description: 'Nullam dictum felis eu pede mollis pretium.',
-                    src: 'assets/images/mobile/member3.jpeg'
+                    src: path.basePath+'assets/images/mobile/member3.jpeg'
                 },
                 {
                     id: 4,
                     name: 'Provicia Norton',
                     position: 'Backend developer',
                     description: 'Libero venenatis faucibus. Etiam sit amet eros faucibus',
-                    src: 'assets/images/mobile/member4.jpeg'
+                    src: path.basePath+'assets/images/mobile/member4.jpeg'
                 },
             ];
 
@@ -385,25 +408,25 @@ var menuItemClick = function () {
             var achievements = [
                 {
                     id: 1,
-                    src: 'assets/images/icons/achievement11.png',
+                    src: path.basePath+'assets/images/icons/achievement11.png',
                     value: 3054,
                     name: 'completed products'
                 },
                 {
                     id: 2,
-                    src: 'assets/images/icons/achievement21.png',
+                    src: path.basePath+'assets/images/icons/achievement21.png',
                     value: 7234873,
                     name: 'click pressed'
                 },
                 {
                     id: 3,
-                    src: 'assets/images/icons/achievement31.png',
+                    src: path.basePath+'assets/images/icons/achievement31.png',
                     value: 4670,
                     name: 'mails sent & received'
                 },
                 {
                     id: 4,
-                    src: 'assets/images/icons/achievement41.png',
+                    src: path.basePath+'assets/images/icons/achievement41.png',
                     value: 939,
                     name: 'jokes tolds'
                 },
@@ -413,60 +436,60 @@ var menuItemClick = function () {
                 {
                     id: '1',
                     category: "web design",
-                    src: "assets/images/mobile/portfolio_img/1.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/1.jpeg"
                 }, {
                     id: '2',
                     category: "web design",
-                    src: "assets/images/mobile/portfolio_img/2.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/2.jpeg"
                 },
                 {
                     id: '3',
                     category: "web design",
-                    src: "assets/images/mobile/portfolio_img/3.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/3.jpeg"
                 },
                 {
                     id: '4',
                     category: "web design",
-                    src: "assets/images/mobile/portfolio_img/4.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/4.jpeg"
                 },
                 {
                     id: '5',
                     category: "photography",
-                    src: "assets/images/mobile/portfolio_img/5.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/5.jpeg"
                 },
                 {
                     id: '6',
                     category: "photography",
-                    src: "assets/images/mobile/portfolio_img/6.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/6.jpeg"
                 },
                 {
                     id: '7',
                     category: "photography",
-                    src: "assets/images/mobile/portfolio_img/7.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/7.jpeg"
                 }, {
                     id: '8',
                     category: "photography",
-                    src: "assets/images/mobile/portfolio_img/8.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/8.jpeg"
                 },
                 {
                     id: '9',
                     category: "graphic",
-                    src: "assets/images/mobile/portfolio_img/9.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/9.jpeg"
                 },
                 {
                     id: '10',
                     category: "graphic",
-                    src: "assets/images/mobile/portfolio_img/10.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/10.jpeg"
                 },
                 {
                     id: '11',
                     category: "graphic",
-                    src: "assets/images/mobile/portfolio_img/11.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/11.jpeg"
                 },
                 {
                     id: '12',
                     category: "graphic",
-                    src: "assets/images/mobile/portfolio_img/12.jpeg"
+                    src: path.basePath+"assets/images/mobile/portfolio_img/12.jpeg"
                 },
 
             ];
@@ -482,6 +505,9 @@ var menuItemClick = function () {
                 }, {
                     header: 'Check out news',
                     description: 'Donec vitae sapien ut libero venenatis faucibus. Maecenas nec odio et ante tincidunt tempus.  Nullam quis ante. Etiam sit amet orci eget erosfaucibus'
+                }, {
+                    header: 'Contact Us',
+                    description: 'libero venenatis faucibus donec vitae sapien. Maecenas nec odio et ante tincidunt tempus.  Nullam quis ante. Etiam sit amet orci eget erosfaucibus'
                 }
             ];
 
@@ -509,7 +535,13 @@ var menuItemClick = function () {
             service.getNews = function () {
 
 
-                var url = '../assets/data/data.json';
+                // var url = '../assets/data/data.json';
+                console.log('location.path=',$location.path());
+                console.log('location.url=',$location.url());
+                console.log('location.host=',$location.host());
+
+                // var url = '../assets/data/data.json';
+                var url = path.basePath+'assets/data/data.json';
 
                 var config = {
                     headers: {

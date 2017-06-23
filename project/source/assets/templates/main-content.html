@@ -2,7 +2,7 @@
 <div class="services" id="services">
     <div class="services__block1">
         <div class="service__item" ng-click="serviceItemClick(1)">
-            <img class="service__img--web" src="/assets/images/icons/service_web.png" alt="web design service">
+            <img class="service__img--web" ng-src="{{basePath}}/assets/images/icons/service_web.png" alt="web design service">
             <h3 class="uppercase">Web design</h3>
             <div class="service__line">
                 <hr class="service--hr--1" ng-class="serviceActiveItem.item1"/>
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="service__item" ng-click="serviceItemClick(2)">
-            <img class="service__img--web" src="/assets/images/icons/service_graphic.png" alt="graphic design service">
+            <img class="service__img--web" ng-src="{{basePath}}assets/images/icons/service_graphic.png" alt="graphic design service">
             <h3 class="uppercase">Graphic design</h3>
             <div class="service__line">
                 <hr class="" ng-class="serviceActiveItem.item2"/>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="service__item" ng-click="serviceItemClick(3)">
-            <img class="service__img--web" src="/assets/images/icons/service_programming.png"
+            <img class="service__img--web" ng-src="{{basePath}}/assets/images/icons/service_programming.png"
                  alt="programing design service">
             <h3 class="uppercase">Programing</h3>
             <div class="service__line">
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="service__item" ng-click="serviceItemClick(4)">
-            <img class="service__img--web" src="/assets/images/icons/service_photo.png"
+            <img class="service__img--web" ng-src="{{basePath}}/assets/images/icons/service_photo.png"
                  alt="photography design service">
             <h3 class="uppercase">Photography</h3>
             <div class="service__line">
@@ -136,7 +136,8 @@
 </div>
 
 <div class="contacts" id="contacts">
-
+    <block-header content="blockHeaderItems[3]" h2-color="white_color"></block-header>
+    <contact-form></contact-form>
 </div>
 
 
