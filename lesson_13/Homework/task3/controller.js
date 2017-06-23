@@ -33,7 +33,7 @@ function MainCtrl($scope) {
 
     $scope.submitUserForm = function (valid) {
         if (valid) {
-            $scope.message = "We sent link to your e-mail. Please follow the link to activate your account";
+            $scope.message = "Mesage sent";
         }
     };
 

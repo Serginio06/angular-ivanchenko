@@ -1,1 +1,72 @@
-<p>This is contact form</p>
+<form name="contactForm" ng-submit="submitContactForm(contactForm.$valid)">
+    <!--ng-blur="isUserValide = contactForm.userName.$invalid && contactForm.userName.$dirty"-->
+    <div class="form__content--wrapper std__internal__block">
+
+        <div class="contact__name-email--wrapper">
+
+            <!--<div class="contact-name&#45;&#45;global-wrapper">-->
+            <div class="contact-name__wrapper">
+                <input name="userName" type="text" ng-model="contacts.userName" required ng-pattern="nameRegEx"
+                       ng-keyup="nameValidation(isNameValide = contactForm.userName.$invalid && contactForm.userName.$dirty)"
+                       class="contact__input" placeholder="Your name here" aria-describedby="userName">
+
+
+                <div ng-class="contactNameInputValidClass">
+                    <!--<div id="Slider" class="slidedown">-->
+                    <div class="contact__validation--message">
+                        <p class="white_color">Please enter correct name. It should be the latin alphabet, 3
+                            characters
+                            minimum</p>
+                    </div>
+                </div>
+            </div>
+            <!--</div>-->
+
+            <!--<div class="contacts__name-email__separator"></div>-->
+
+
+            <!--<div class="contact-email&#45;&#45;global-wrapper">-->
+            <div class="contact-email__wrapper">
+                <input name="userEmail" type="text" ng-model="contacts.userEmail" required ng-pattern="emailRegEx"
+                       ng-keyup="emailValidation(isEmailValide = contactForm.userEmail.$invalid && contactForm.userEmail.$dirty)"
+                       class="contact__input" placeholder="Your mail here" aria-describedby="userEmail">
+
+
+                <div ng-class="contactEmailInputValidClass">
+                    <!--<div id="Slider" class="slidedown">-->
+                    <div class="contact__validation--message">
+                        <p class="white_color">Please enter correct email. Only the latin alphabet, figures '_' '.'
+                            '@'
+                            symbols allowed</p>
+                    </div>
+                </div>
+            </div>
+            <!--</div>-->
+        </div>
+
+
+        <div class="contact-message__wrapper">
+            <input name="userMessage" type="text" ng-model="contacts.userMessage" required ng-pattern="messageRegEx"
+                   ng-keyup="messageValidation(isMessageValide = contactForm.userMessage.$invalid && contactForm.userMessage.$dirty)"
+                   class="contact__input" placeholder="Your message here" aria-describedby="userMessage">
+
+
+            <div ng-class="contactMessageInputValidClass">
+                <!--<div id="Slider" class="slidedown">-->
+                <div class="contact__validation--message">
+                    <p class="white_color">Message should be more then 20 characters</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="contact__form__button--wrapper">
+            <button type="submit" ng-disabled="contactForm.$invalid" class="contact__button"
+
+                    ng-click="submitContactForm(contactForm.$valid)">Send
+            </button>
+        </div>
+    </div>
+
+
+</form>

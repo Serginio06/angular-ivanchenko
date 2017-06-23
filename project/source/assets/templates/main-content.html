@@ -1,6 +1,7 @@
 
 <div class="services" id="services">
-    <div class="services__block1">
+    <!--<div class="services__block1 std__internal__block">-->
+    <div class="std__internal__block">
         <div class="service__item" ng-click="serviceItemClick(1)">
             <img class="service__img--web" ng-src="{{basePath}}/assets/images/icons/service_web.png" alt="web design service">
             <h3 class="uppercase">Web design</h3>
@@ -67,6 +68,7 @@
         </div>
     </div>
     <div class="services__block2">
+        <div class="std__internal__block">
         <div class="services__block2__buttons">
             <button class="services__block2--btn uppercase" id="services__block2--btn--startTour"
                     ng-click="goTo('portfolio')">start tour
@@ -79,14 +81,15 @@
             <div class="service__block2--img-phones" id="service__block2--img-phones"></div>
             <div class="service__block2--desctiption" id="service__block2--desctiption">
                 <h2>Fully Responsive</h2>
-                <p class="service__block2--description--text ">Nam quam nunc, blandit vel, luctus pulvinar, hendrerit
+                <p class="service__block2--description--text">Nam quam nunc, blandit vel, luctus pulvinar, hendrerit
                     id, lorem. Maecenas nec odio et ante tincidunt tempus.
                     Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros
                     faucibus
                     tincidunt.</p>
-                <button class="services__block2--btn2 uppercase">get now</button>
+                <button class="services__block2--btn2 uppercase" ng-click="goTo('contacts')">get now</button>
             </div>
 
+        </div>
         </div>
 
     </div>

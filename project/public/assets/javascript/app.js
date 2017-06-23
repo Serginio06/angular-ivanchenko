@@ -31,6 +31,7 @@ var menuItemClick = function () {
         "use strict";
         angular.module ('myModule', ['duScroll', 'ngAnimate', 'angular-inview', 'ngRoute'])
                .constant('path', {basePath: '/angular-ivanchenko/project/public/'})
+               // .constant ('path', {basePath: '/project/public/'})
                .controller ('BodyCtrl', BodyCtrl)
                .controller ('articleCtrl', articleCtrl)
                .service ('MainService', MainService)
@@ -39,23 +40,24 @@ var menuItemClick = function () {
                .directive ('blockHeader', blockHeader)
                .directive ('teamMembers', teamMembers)
                .directive ('newsBlock', newsBlock)
-               .directive ('contactForm',contactForm)
+               .directive ('contactForm', contactForm)
+               .directive ('headerBlock', headerBlock)
                .config (appConfig);
 
 // =================================== ROUTER ============================================
-        function appConfig($routeProvider,path) {
+        function appConfig($routeProvider, path) {
 
             $routeProvider
                 .when ('/', {
                     // templateUrl: '../assets/templates/main-content.html',
-                    templateUrl: path.basePath+'assets/templates/main-content.html',
+                    templateUrl: path.basePath + 'assets/templates/main-content.html',
                 })
                 .when ('/news', {
                     template: '<news-block></news-block>'
                 })
                 .when ('/article/:id', {
                     // template:'<p>article id={{myId}} msg={{msg}} should be here</p>',
-                    templateUrl: path.basePath+'/assets/templates/news-article.html',
+                    templateUrl: path.basePath + '/assets/templates/news-article.html',
                     controller: 'articleCtrl'
                 })
                 .otherwise ({
@@ -63,13 +65,12 @@ var menuItemClick = function () {
                 });
 
 
-            
         }
 
 // ================================== DIRECTIVES ===========================================
         function achievements(path) {
             var ddo = {
-                templateUrl: path.basePath+'/assets/templates/achievements.html'
+                templateUrl: path.basePath + '/assets/templates/achievements.html'
             };
             return ddo;
         }
@@ -78,10 +79,10 @@ var menuItemClick = function () {
             var ddo = {
                 restrict: 'E',
                 // templateUrl: '../assets/templates/block-header.html',
-                templateUrl: path.basePath+'/assets/templates/block-header.html',
+                templateUrl: path.basePath + '/assets/templates/block-header.html',
                 scope: {
                     content: '=',
-                    h2Color:'@'
+                    h2Color: '@'
                 },
                 replace: true
             };
@@ -93,7 +94,7 @@ var menuItemClick = function () {
             var ddo = {
                 restrict: 'E',
                 // templateUrl: '../assets/templates/team-members.html'
-                templateUrl: path.basePath+'/assets/templates/team-members.html'
+                templateUrl: path.basePath + '/assets/templates/team-members.html'
             };
             return ddo;
         }
@@ -101,7 +102,7 @@ var menuItemClick = function () {
         function newsBlock(path) {
             var ddo = {
                 // templateUrl: '../assets/templates/news-block.html'
-                templateUrl: path.basePath+'/assets/templates/news-block.html'
+                templateUrl: path.basePath + '/assets/templates/news-block.html'
             };
             return ddo;
         }
@@ -109,9 +110,18 @@ var menuItemClick = function () {
         function contactForm(path) {
             var ddo = {
                 // templateUrl:'../assets/templates/contact-form.html'
-                templateUrl:path.basePath+'/assets/templates/contact-form.html'
+                templateUrl: path.basePath + '/assets/templates/contact-form.html'
             };
             return ddo;
+        }
+
+        function headerBlock(path) {
+            var ddo = {
+                // templateUrl:'../assets/templates/contact-form.html'
+                templateUrl: path.basePath + '/assets/templates/header-block.html'
+            };
+            return ddo;
+
         }
 
 
@@ -128,8 +138,8 @@ var menuItemClick = function () {
         }
 
 
-        BodyCtrl.$inject = ['$scope', '$anchorScroll', '$location', '$timeout', '$document', 'MainService', '$interval','path'];
-        function BodyCtrl($scope, $anchorScroll, $location, $timeout, $document, MainService, $interval,path) {
+        BodyCtrl.$inject = ['$scope', '$anchorScroll', '$location', '$timeout', '$document', 'MainService', '$interval', 'path'];
+        function BodyCtrl($scope, $anchorScroll, $location, $timeout, $document, MainService, $interval, path) {
 
             $scope.basePath = path.basePath;
 
@@ -327,20 +337,50 @@ var menuItemClick = function () {
                 console.log ("Error: ", err);
             });
 
-            // $scope.getNews = function () {
-            //
-            //
-            //     MainService.getNews ().then (result=> {
-            //         "use strict";
-            //
-            //
-            //         $scope.news = result;
-            //     }, err=> {
-            //         "use strict";
-            //         console.log ("Error: ", err);
-            //     });
-            //
-            // }
+            // ====================== contacts ========================
+
+            $scope.nameRegEx = /(.*[a-z]){3,}/i;
+            $scope.emailRegEx = /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            $scope.messageRegEx = /(.*[a-z0-9._]){20,}/i;
+            $scope.contactNameInputValidClass = 'slideup';
+            $scope.contactEmailInputValidClass = 'slideup';
+            $scope.contactMessageInputValidClass = 'slideup';
+
+            $scope.contacts = {
+                userName: "",
+                userEmail: "",
+                userMessage: ""
+            };
+
+
+            // $scope.passwordRegEx = /[a-zA-Z0-9]{6,}/;
+
+
+            $scope.nameValidation = function (isNameValide) {
+
+                $scope.contactNameInputValidClass =  isNameValide ? 'slidedown':'slideup';
+            };
+
+
+            $scope.emailValidation = function (isEmailValide) {
+
+                $scope.contactEmailInputValidClass =  isEmailValide ? 'slidedown':'slideup';
+            };
+
+            $scope.messageValidation = function (isMessageValide) {
+
+                $scope.contactMessageInputValidClass =  isMessageValide ? 'slidedown':'slideup';
+            };
+
+            $scope.submitContactForm = function (isValid) {
+
+                // if (isValid) {
+                //     $scope.message = "We sent link to your e-mail. Please follow the link to activate your account";
+                // }
+
+
+
+            };
 
 
         }
@@ -348,27 +388,27 @@ var menuItemClick = function () {
 
 // ================== SERVICES =========================
 
-        MainService.$inject = ['$http','$location','path'];
-        function MainService($http,$location,path) {
+        MainService.$inject = ['$http', '$location', 'path'];
+        function MainService($http, $location, path) {
             var service = this;
 
 
             var socialIcons = [
                 {
                     name: 'facebook',
-                    src: path.basePath+'assets/images/icons/facebook-active.png'
+                    src: path.basePath + 'assets/images/icons/facebook-active.png'
                 },
                 {
                     name: 'google',
-                    src: path.basePath+'assets/images/icons/google-active.png'
+                    src: path.basePath + 'assets/images/icons/google-active.png'
                 },
                 {
                     name: 'tweeter',
-                    src: path.basePath+'assets/images/icons/tweeter-active.png'
+                    src: path.basePath + 'assets/images/icons/tweeter-active.png'
                 },
                 {
                     name: 'dribble',
-                    src: path.basePath+'assets/images/icons/dribble-active.png'
+                    src: path.basePath + 'assets/images/icons/dribble-active.png'
                 },
 
             ];
@@ -379,28 +419,28 @@ var menuItemClick = function () {
                     name: 'John Doe',
                     position: 'Graphic designer',
                     description: 'Tincidunt. Cras dapibus. Aenean leo ligula',
-                    src: path.basePath+'assets/images/mobile/member1.jpeg'
+                    src: path.basePath + 'assets/images/mobile/member1.jpeg'
                 },
                 {
                     id: 2,
                     name: 'Sarah L. Hitz',
                     position: 'Frontend developer',
                     description: 'Montes, nascetur ridiculus mus. pellentesque eu',
-                    src: path.basePath+'assets/images/mobile/member2.jpeg'
+                    src: path.basePath + 'assets/images/mobile/member2.jpeg'
                 },
                 {
                     id: 3,
                     name: 'Dale P. Pitchford',
                     position: 'Frontend developer',
                     description: 'Nullam dictum felis eu pede mollis pretium.',
-                    src: path.basePath+'assets/images/mobile/member3.jpeg'
+                    src: path.basePath + 'assets/images/mobile/member3.jpeg'
                 },
                 {
                     id: 4,
                     name: 'Provicia Norton',
                     position: 'Backend developer',
                     description: 'Libero venenatis faucibus. Etiam sit amet eros faucibus',
-                    src: path.basePath+'assets/images/mobile/member4.jpeg'
+                    src: path.basePath + 'assets/images/mobile/member4.jpeg'
                 },
             ];
 
@@ -408,25 +448,25 @@ var menuItemClick = function () {
             var achievements = [
                 {
                     id: 1,
-                    src: path.basePath+'assets/images/icons/achievement11.png',
+                    src: path.basePath + 'assets/images/icons/achievement11.png',
                     value: 3054,
                     name: 'completed products'
                 },
                 {
                     id: 2,
-                    src: path.basePath+'assets/images/icons/achievement21.png',
+                    src: path.basePath + 'assets/images/icons/achievement21.png',
                     value: 7234873,
                     name: 'click pressed'
                 },
                 {
                     id: 3,
-                    src: path.basePath+'assets/images/icons/achievement31.png',
+                    src: path.basePath + 'assets/images/icons/achievement31.png',
                     value: 4670,
                     name: 'mails sent & received'
                 },
                 {
                     id: 4,
-                    src: path.basePath+'assets/images/icons/achievement41.png',
+                    src: path.basePath + 'assets/images/icons/achievement41.png',
                     value: 939,
                     name: 'jokes tolds'
                 },
@@ -436,60 +476,60 @@ var menuItemClick = function () {
                 {
                     id: '1',
                     category: "web design",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/1.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/1.jpeg"
                 }, {
                     id: '2',
                     category: "web design",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/2.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/2.jpeg"
                 },
                 {
                     id: '3',
                     category: "web design",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/3.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/3.jpeg"
                 },
                 {
                     id: '4',
                     category: "web design",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/4.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/4.jpeg"
                 },
                 {
                     id: '5',
                     category: "photography",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/5.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/5.jpeg"
                 },
                 {
                     id: '6',
                     category: "photography",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/6.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/6.jpeg"
                 },
                 {
                     id: '7',
                     category: "photography",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/7.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/7.jpeg"
                 }, {
                     id: '8',
                     category: "photography",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/8.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/8.jpeg"
                 },
                 {
                     id: '9',
                     category: "graphic",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/9.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/9.jpeg"
                 },
                 {
                     id: '10',
                     category: "graphic",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/10.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/10.jpeg"
                 },
                 {
                     id: '11',
                     category: "graphic",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/11.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/11.jpeg"
                 },
                 {
                     id: '12',
                     category: "graphic",
-                    src: path.basePath+"assets/images/mobile/portfolio_img/12.jpeg"
+                    src: path.basePath + "assets/images/mobile/portfolio_img/12.jpeg"
                 },
 
             ];
@@ -541,8 +581,8 @@ var menuItemClick = function () {
                 // console.log('location.host=',$location.host());
 
                 // var url = '../assets/data/data.json';
-                var url = path.basePath+'assets/data/data.json';
-                console.log('url=',url);
+                var url = path.basePath + 'assets/data/data.json';
+                // console.log('url=',url);
 
                 var config = {
                     headers: {
