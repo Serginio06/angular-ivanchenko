@@ -30,7 +30,7 @@ var menuItemClick = function () {
         //        });
         "use strict";
         angular.module ('myModule', ['duScroll', 'ngAnimate', 'angular-inview', 'ngRoute'])
-               .constant('path', {basePath: '/project/public/'})
+               .constant('path', {basePath: '/angular-ivanchenko/project/public/'})
                .controller ('BodyCtrl', BodyCtrl)
                .controller ('articleCtrl', articleCtrl)
                .service ('MainService', MainService)
@@ -536,12 +536,13 @@ var menuItemClick = function () {
 
 
                 // var url = '../assets/data/data.json';
-                console.log('location.path=',$location.path());
-                console.log('location.url=',$location.url());
-                console.log('location.host=',$location.host());
+                // console.log('location.path=',$location.path());
+                // console.log('location.url=',$location.url());
+                // console.log('location.host=',$location.host());
 
                 // var url = '../assets/data/data.json';
                 var url = path.basePath+'assets/data/data.json';
+                console.log('url=',url);
 
                 var config = {
                     headers: {
