@@ -11,26 +11,23 @@ log.txt
 *.sublime-workspace
 .vscode/
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 links.txt
 ._.gitignore
 
 .idea/
 .sass-cache/
-.tmp/
-.versions/
 coverage/
-dist/
 node_modules/
-tmp/
-temp/
-hooks/
-platforms/
-plugins/
-plugins/android.json
-plugins/ios.json
-www/
+public/
 $RECYCLE.BIN/
 
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+manifest.json
+service-worker.js
+asset-manifest.json
+
+
