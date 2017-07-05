@@ -1,0 +1,13 @@
+.slideup, .slidedown {
+    max-height: 5px!important;
+    overflow-y: hidden;
+    border: 1px solid coral;
+    -webkit-transition: max-height 0.8s ease-in-out;
+    -moz-transition: max-height 0.8s ease-in-out;
+    -o-transition: max-height 0.8s ease-in-out;
+    transition: max-height 0.8s ease-in-out;
+}
+
+.slidedown {
+    max-height: 50px!important;
+}
