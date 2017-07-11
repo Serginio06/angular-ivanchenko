@@ -1,0 +1,22 @@
+.listLabel {
+    font-weight: bold;
+}
+
+/*.closeUp {*/
+    /*!*background-color: red !important;*!*/
+    /*max-height: 0!important;*/
+    /*overflow-y: hidden;*/
+    /*transition: all 0.9s ease;*/
+    /*padding: 0;*/
+    /*border: 0;*/
+    /*!*transform: 4 all;*!*/
+/*}*/
+
+/*.openUp {*/
+    /*max-height: 500px!important;*/
+    /*transition: all 1.5s ease;*/
+    /*overflow-y: hidden;*/
+    /*padding: 0;*/
+    /*border: 0;*/
+/*}*/
+

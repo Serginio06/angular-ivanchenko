@@ -1,0 +1,29 @@
+input {
+
+  margin: 0px 15px 10px 15px !important;
+  width: 15px;
+  height: 15px;
+}
+
+
+.label,h4 {
+  display: inline-block !important;
+}
+
+.closeUp {
+  /*background-color: red !important;*/
+  max-height: 0!important;
+  overflow-y: hidden;
+  transition: all 0.9s ease;
+  padding: 0;
+  border: 0;
+  /*transform: 4 all;*/
+}
+
+.openUp {
+  max-height: 500px!important;
+  transition: all 1.5s ease;
+  overflow-y: hidden;
+  padding: 0;
+  border: 0;
+}
