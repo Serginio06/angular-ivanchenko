@@ -42,7 +42,7 @@ class App extends Component {
 
         appStore.on ('TASK-LIST-CHANGED', ()=> {
             this.setState ({tasks: appStore.getAllTasks ()});
-            // console.log ('APP this.tasks= ', this.tasks);
+            // console.log ('APP this.initialTaskList= ', this.initialTaskList);
         })
     }
 

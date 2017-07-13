@@ -11,7 +11,7 @@ class AppStore extends EventEmitter {
         super ();
         this.tasks = tasks;
         // this.divStyle = {
-        //     tasks: 'red'
+        //     initialTaskList: 'red'
         // }
     }
 
@@ -33,13 +33,13 @@ class AppStore extends EventEmitter {
     deleteTask(id){
         // console.log('delelte task', id);
         this.tasks.splice(id,1);
-        // console.log('this.tasks= ', this.tasks);
+        // console.log('this.initialTaskList= ', this.initialTaskList);
         this.emit ('TASK-LIST-CHANGED');
     }
 
 
     getAllTasks() {
-        // console.log('appStore this.tasks= ', this.tasks);
+        // console.log('appStore this.initialTaskList= ', this.initialTaskList);
         return this.tasks;
     }
 
