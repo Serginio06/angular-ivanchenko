@@ -22,7 +22,7 @@ input {
 
 .openUp {
   max-height: 500px!important;
-  transition: all 1.5s ease;
+  transition: all 2.5s ease;
   overflow-y: hidden;
   padding: 0;
   border: 0;
