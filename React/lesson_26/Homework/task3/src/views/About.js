@@ -22,8 +22,6 @@ class About extends Component {
                 item.className = 'glyphicon glyphicon-star-empty';
             }
         })
-
-
     }
 
     onMouseLeaveStar(id, e) {
