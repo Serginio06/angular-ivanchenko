@@ -44,8 +44,8 @@ class UserTable extends Component {
                         {this.props.route.users.map ((item, index)=>
 
                             <tr key={index}>
-                                 <td> <Link to={"/tableView/"+index}>{index + 1}</Link></td>
-                                <td><Link to={"/tableView/"+index}>{item.first_name} </Link></td>
+                                 <td> <Link to={"/tableView/"+item.id}>{index + 1}</Link></td>
+                                <td><Link to={"/tableView/"+item.id}>{item.first_name} </Link></td>
                                 <td>{item.last_name}</td>
                                 <td>{item.gender}</td>
 

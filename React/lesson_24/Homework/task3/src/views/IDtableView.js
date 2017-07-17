@@ -8,6 +8,9 @@ import { Link } from 'react-router';
 class IDtableView extends Component{
 
     render(){
+        let user = this.props.route.users.filter((item)=>{
+            return +item.id === +this.props.params.userID;
+        });
 
         return (
             <div className="well">
@@ -25,11 +28,11 @@ class IDtableView extends Component{
                     {/*{this.props.route.users.map ((item, index)=>*/}
 
                         <tr>
-                            <td>{this.props.route.users[this.props.params.userID].id}</td>
-                            <td>{this.props.route.users[this.props.params.userID].first_name}</td>
-                            <td>{this.props.route.users[this.props.params.userID].last_name}</td>
-                            <td>{this.props.route.users[this.props.params.userID].gender}</td>
-                            <td>{this.props.route.users[this.props.params.userID].email}</td>
+                            <td>{user[0].id}</td>
+                            <td>{user[0].first_name}</td>
+                            <td>{user[0].last_name}</td>
+                            <td>{user[0].gender}</td>
+                            <td>{user[0].email}</td>
 
 
                         </tr>

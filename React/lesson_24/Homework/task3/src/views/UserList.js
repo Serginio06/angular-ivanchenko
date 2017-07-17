@@ -41,7 +41,7 @@ class UserList extends Component {
                         {this.props.route.users.map ((item, index, arr)=> {
                                 let element;
                             element =
-                                <li className="list-group-item list-group-item-success" key={index}> <Link to={"/listView/"+index}>{index + 1}.
+                                <li className="list-group-item list-group-item-success" key={index}> <Link to={"/listView/"+item.id}>{index + 1}.
                                     <span
                                         className="listLabel">First name:</span> {item.first_name}. <span
                                         className="listLabel">Last name:</span> {item.last_name}</Link></li>
