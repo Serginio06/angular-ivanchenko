@@ -7,5 +7,5 @@ import './style/index.css';
 import App from './App';
 // import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App 	summand1="5" 	summand2="3"/>, document.getElementById('root'));
+ReactDOM.render(<App 	summand1={5} 	summand2={3}/>, document.getElementById('root'));
 // registerServiceWorker();

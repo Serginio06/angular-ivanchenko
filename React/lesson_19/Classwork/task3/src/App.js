@@ -5,7 +5,7 @@ class App extends Component {
 
 
     render() {
-        let sum = +this.props.summand1 + +this.props.summand2;
+        let sum = this.props.summand1 + this.props.summand2;
 
         return (
             <div className="container">
