@@ -1,0 +1,272 @@
+//=============== VARIABLES =====================
+$body-background: #fff;
+$text_color1: #18cfab;
+$text_color2: #b8b8b8;
+$menu_bkg: #44433e;
+//$bkg_img_landing: #44433e;
+$h1--fontSize: 26px;
+$h2--fontSize: 14px;
+$h3--fontSize: 11px;
+$h4--fontSize: 16px;
+$h5--fontSize: 8px;
+//$header--background--std-height: 50px;
+$header--menu--height: 60px;
+$header--bkg-img--height: 600px;
+$btn--width--mobile: 300px;
+$btn--height--mobile: 30px;
+$btn--bkg--color1: #18cfab;
+$btn--bkg--color2: #b8b8b8;
+
+$max--blocks--width--desctop: 950px;
+$max--blocks--width--mobile: 780px;
+$min--blocks--width--watch: 320px;
+//$violet-text-color:#18cfab;
+//$passive-text-color: $text_color1;
+//$active-text-color:black;
+//$std--bkg-button-color:#cc618d;
+
+@mixin transitionMaxHeight($time) {
+  -webkit-transition: max-height $time ease-in-out;
+  -moz-transition: max-height $time ease-in-out;
+  -o-transition: max-height $time ease-in-out;
+  transition: max-height $time ease-in-out;
+}
+
+@mixin transitionAll($time) {
+  -webkit-transition: all $time ease-in-out;
+  -moz-transition: all $time ease-in-out;
+  -o-transition: all $time ease-in-out;
+  transition: all $time ease-in-out;
+}
+
+@mixin btn-std() {
+  //display: block;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  position: relative;
+  border: 0;
+  border-radius: 5px;
+  width: 150px;
+  height: 50px;
+}
+
+@mixin bcg_img_properties() {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 0;
+  position: relative;
+  z-index: 1000;
+}
+
+@mixin img-left-float($imgWidth,$marginRight) {
+  display: inline-block;
+  width: $imgWidth;
+  //max-width: 200px;
+  float: left;
+  margin-right: $marginRight;
+}
+
+@mixin slideUp (){
+    max-height: 0;
+    overflow-y: hidden;
+  //@include transitionMaxHeight(0.8s);
+  @include transitionAll(0.8s);
+  }
+
+@mixin slidedown($max-height) {
+    max-height: $max-height;
+}
+
+//@mixin slideLeft ($width){
+//  height: 15px ;
+//  width: $width;
+//  padding-right: $width;
+//  overflow-y: hidden;
+//  -webkit-transition: all 0.8s ease-in-out;
+//  -moz-transition: all 0.8s ease-in-out;
+//  -o-transition: all 0.8s ease-in-out;
+//  transition: all 0.8s ease-in-out;
+//}
+//
+//@mixin slideRight() {
+//  //max-height: $max-height;
+//  padding-right: 0;
+//}
+
+
+
+
+//=========== FONTS ============
+//@font-face {
+//  font-family: 'archivo';
+//  src:
+//          url('./../../static/fonts/ArchivoBlack-Regular.otf');
+//  src:
+//          url('./../../static/fonts/ArchivoBlack-Regular.ttf');
+//}
+
+//=============== COMMON =====================
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  //font-family: Raleway !important;
+  //font-family: 'Archivo Black', sans-serif!important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: $body-background;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.green-text {
+  color: $text_color1;
+}
+
+.white-text {
+  color: white;
+}
+
+.black-text {
+  color: black
+}
+
+p {
+  text-align: justify;
+  font-size: 12px !important;
+  font-weight: 200;
+  color: #000000;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: $h1--fontSize;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 1px;
+  //text-align: center;
+}
+
+h2 {
+  display: inline-block;
+  font-size: $h2--fontSize;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 5px auto;
+  position: relative;
+  text-align: center;
+}
+
+h3 {
+  font-size: $h3--fontSize;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
+h4 {
+  font-size: $h4--fontSize;
+  color: #ffffff;
+  position: relative;
+  margin: 15px;
+}
+
+.strips--img {
+  @include bcg_img_properties();
+  display: block;
+  position: relative;
+  border: 0;
+  width: 60px;
+  margin: 20px auto;
+}
+
+.green-btn {
+  display: inline-block;
+  @include btn-std();
+  background-color: $text_color1;
+  border-top: 3px solid white;
+  //border-top-color: white;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 10px 15px;
+  color: white;
+  font-size: 12px;
+}
+
+.blue-btn {
+  display: inline-block;
+  @include btn-std();
+  background-color: #00cbf6;
+  border-top: 3px solid white;
+  //border-top-color: white;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 10px 15px;
+  color: white;
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+.std__internal__block__mobile {
+  //min-width: $max--blocks--width--mobile;
+  display: block;
+  width: $max--blocks--width--mobile;
+  margin: auto;
+}
+
+.about, .services, .portfolio, .landing {
+  width: 100%;
+  min-width: $max--blocks--width--mobile;
+  text-align: center;
+  //height: 400px;
+  overflow: auto;
+  margin-bottom: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+
+  //=============== COMMON for Desctop =====================
+
+  p {
+    text-align: justify;
+    font-size: 16px;
+    font-weight: 200;
+  }
+
+  h1 {
+    font-size: $h1--fontSize + 12;
+    letter-spacing: 2px;
+  }
+
+  h2 {
+    font-size: $h2--fontSize + 8;
+    text-align: center;
+    margin: 10px auto 10px auto;
+  }
+
+  h3 {
+    font-size: $h3--fontSize+3;
+  }
+
+  h4 {
+    font-size: $h4--fontSize;
+  }
+
+  .std__internal__block {
+    width: 80%;
+    //min-width: $min--blocks--width--watch;
+    max-width: $max--blocks--width--desctop;
+    display: block;
+    margin: 0 auto;
+  }
+}

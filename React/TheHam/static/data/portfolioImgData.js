@@ -1,0 +1,40 @@
+export const portfolioImgData = [
+  {
+    "category":2,
+    "src":"./images/service1.jpeg"
+  },{
+    "category":2,
+    "src":"./images/service2.jpeg"
+  },{
+    "category":3,
+    "src":"./images/service2.jpeg"
+  },{
+    "category":3,
+    "src":"./images/service3.jpeg"
+  },{
+    "category":4,
+    "src":"./images/service3.jpeg"
+  },{
+    "category":4,
+    "src":"./images/service4.jpeg"
+  },{
+    "category":5,
+    "src":"./images/service4.jpeg"
+  },{
+    "category":5,
+    "src":"./images/service5.jpeg"
+  },{
+    "category":2,
+    "src":"./images/service5.jpeg"
+  },{
+    "category":2,
+    "src":"./images/service6.jpeg"
+  },{
+    "category":3,
+    "src":"./images/service6.jpeg"
+  },{
+    "category":3,
+    "src":"./images/service6.jpeg"
+  }
+];
+

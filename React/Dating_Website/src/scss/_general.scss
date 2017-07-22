@@ -1,0 +1,133 @@
+//=============== VARIABLES =====================
+$body-background: #fff;
+$grey1_color: #cccccc;
+$grey2_color: #bfbfbf;
+$menu_bkg_90transparancy: rgba(106, 97, 116, 0.9);
+$h1--fontSize: 26px;
+$h2--fontSize: 14px;
+$h3--fontSize: 11px;
+$h5--fontSize: 8px;
+$header--background--std-height: 50px;
+$header--menu--height: 50px;
+$btn--width--mobile: 300px;
+$btn--height--mobile: 30px;
+$btn--bkg--color:#cc618d;
+$max--blocks--width--desctop:950px;
+$max--blocks--width--mobile:740px;
+$min--blocks--width--watch:320px;
+$violet-text-color:#af81ca;
+$passive-text-color:$grey1_color;
+$active-text-color:black;
+//$std--bkg-button-color:#cc618d;
+
+@mixin transition($time) {
+  -webkit-transition: max-height $time ease-in-out;
+  -moz-transition: max-height $time ease-in-out;
+  -o-transition: max-height $time ease-in-out;
+  transition: max-height $time ease-in-out;
+}
+
+
+
+//=========== FONTS ============
+//@font-face {
+//  font-family: 'archivo';
+//  src:
+//          url('./../../static/fonts/ArchivoBlack-Regular.otf');
+//  src:
+//          url('./../../static/fonts/ArchivoBlack-Regular.ttf');
+//}
+
+
+//=============== COMMON =====================
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  //font-family: Raleway !important;
+  font-family: 'Archivo Black', sans-serif!important;
+}
+
+body {
+  background-color: $body-background;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.grey-text{
+  color: $grey1_color;
+}
+
+p {
+  text-align: justify;
+  font-size: 10px !important;
+  font-weight: 200;
+  color: #FFFFFF;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: $h1--fontSize;
+  font-weight: 200;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 1px;
+  //text-align: center;
+}
+
+h2 {
+  font-size: $h2--fontSize;
+  font-weight: 400;
+  color: black;
+  margin: 20px auto;
+  position: relative;
+  text-align: center;
+}
+
+h3 {
+  font-size: $h3--fontSize;
+  font-weight: 600;
+  color: black;
+  padding: 0;
+  margin: 0;
+}
+
+h5 {
+  font-size: $h5--fontSize;
+  color: #FFFFFF;
+  position: relative;
+  margin: 15px;
+}
+
+.crimson-btn {
+  display: block;
+  margin: 25px auto;
+  //width: 100px;
+  //min-width: 100px;
+  position: relative;
+  //padding: 5px 0 5px 0;
+  border: 0;
+  border-radius: 20px;
+  color: white;
+  background-color: $btn--bkg--color;
+  font-size: 14px;
+  font-weight: 200;
+  width: $btn--width--mobile;
+  height: $btn--height--mobile;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  //outline-width: 2px;
+}
+
+.std__internal__block {
+  width: 85%;
+  min-width: $min--blocks--width--watch;
+  //max-width: $max--blocks--width--watch;
+  display: block;
+  margin: 0 auto;
+}
+

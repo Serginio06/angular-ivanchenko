@@ -2,6 +2,7 @@
 # http://git-scm.com/docs/gitignore
 
 *~
+._
 *.sw[mnpcod]
 *.log
 *.tmp
@@ -22,6 +23,10 @@ coverage/
 node_modules/
 public/
 $RECYCLE.BIN/
+_sandbox1_animation/
+_sandbox2_modalWindow/
+_sandbox3_parallex/
+_sandbox4_gulp-webpack-react-babel/
 
 .DS_Store
 Thumbs.db

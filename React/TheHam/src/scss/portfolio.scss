@@ -1,0 +1,54 @@
+.portfolio {
+  background-color: #f8fcfe;
+}
+
+.portfolio--tab--title {
+  display: inline-block;
+  //width: 156px;
+  //width: 16%;
+  height: 40px;
+  font-size: 11px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 12px 15px;
+  position: relative;
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: black;
+  margin-left: -1px;
+  font-weight: bold;
+}
+
+.portfolio--tab--title.active {
+  //background-color: $text_color1;
+  color: $text_color1;
+  border-top: 2px solid $text_color1;
+  height: 41px;
+}
+
+.portfolio--images {
+  display: inline-block;
+  width: 25%;
+}
+
+//.portfolio--category--popup.slideUp, .portfolio--category--popup.slideDown {
+.portfolio--category--popup, .portfolio--category--popup.slideDown {
+  //background-color: rgba(255,255,255,0.8);
+  background-color: $text_color1;
+  color: white;
+  font-weight: 500;
+  position: fixed;
+  top:0;
+  z-index: 10000;
+  opacity: 0;
+  @include slideUp();
+  //@include slideLeft(100px);
+
+}
+
+.portfolio--category--popup.slideDown {
+  @include slidedown(30px);
+  opacity: 1;
+  //@include slideRight();
+}

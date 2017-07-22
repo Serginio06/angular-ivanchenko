@@ -1,0 +1,11 @@
+input {
+
+  margin: 0px 15px 10px 15px !important;
+  width: 15px;
+  height: 15px;
+}
+
+
+.label,h4 {
+  display: inline-block !important;
+}

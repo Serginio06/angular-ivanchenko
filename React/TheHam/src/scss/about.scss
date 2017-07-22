@@ -1,0 +1,114 @@
+
+.about {
+  background-color: #090f14;
+  text-align: center;
+}
+
+.about-content {
+  display: inline-block;
+  text-align: left;
+}
+
+.about--img {
+  @include img-left-float('300px', '5em');
+  margin: 25px 10px;
+  width: 50%;
+  height: 350px;
+  max-width: 640px;
+}
+
+.about--right-block {
+  display: inline-block;
+  width: 45%;
+  text-align: left;
+  padding-left: 20px;
+  min-width: 350px;
+  max-width: 580px;
+}
+
+.about--charts {
+  margin-top: 30px;
+}
+
+.about--tab--title {
+  text-align: left;
+  display: inline-block;
+  //width: 100px;
+  padding-right: 10px;
+  //width: 16%;
+  //height: 50px;
+  font-size: 10px;
+  //margin-top: 30px;
+  margin-bottom: 30px;
+  //padding: 18px 5px;
+  position: relative;
+  z-index: 1000;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.about--tab--title-text.active {
+  padding-top: 20px;
+  border-top: 0;
+}
+
+.about--tab--title-text.active {
+  border-top: 1px solid $text_color1;
+}
+
+.about--tab--title.active {
+  //background-color: $text_color1;
+  color: $text_color1;
+}
+
+.about--outer-chart {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  //width: 60%;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+.about--chart-value {
+  color: white;
+  font-size: 10px;
+  padding: 3px 10px;
+  margin: 0;
+  //width: 70%;
+  height: inherit;
+  //background-color: red;
+}
+
+.about-biography-text, .about-history-text {
+  color: $text_color2;
+}
+
+.about-biography {
+  margin-right: 15%;
+}
+
+.about-history {
+  //margin-right: 5%;
+  text-align: left;
+  //min-width: 445px;
+}
+
+.about-history-check-circle {
+  //background-color: $text_color1;
+  color: $text_color1;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.about-history-point {
+  margin: 5px;
+  padding: 0;
+  font-size: 11px;
+}
+
+.about-history-points-left {
+  display: inline-block;
+  width: 50%;
+  text-align: left;
+}

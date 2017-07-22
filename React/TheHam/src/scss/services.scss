@@ -1,0 +1,66 @@
+
+//.services {
+//  width: 100%;
+//  text-align: center;
+//}
+
+//.services h2 {
+//  display: inline-block;
+//  color: black;
+//}
+
+
+
+.services--tabs {
+  //width: 780px;
+  //margin: auto;
+}
+
+.services--tab {
+  display: block;
+  text-align: center;
+
+}
+
+.services--tab--title {
+  display: inline-block;
+  width: 130px;
+  //width: 16%;
+  height: 50px;
+  font-size: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 18px 5px;
+  position: relative;
+  z-index: 1000;
+  background-color: #f8fcfe;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.7);
+  margin-left: -1px;
+}
+
+.services--tab--title.active {
+  background-color: $text_color1;
+  color: white;
+}
+
+.service--tab--content {
+  display: block;
+  text-align: left;
+}
+
+.service--tab--content--img {
+  @include img-left-float(120px,1em);
+  //display: inline-block;
+  //width: 120px;
+  ////max-width: 200px;
+  //float: left;
+  //margin-right: 1em;
+}
+
+.service--tab--content--description {
+  //display: inline-block;
+  //text-align: left;
+  //width: 100%;
+  //margin-left: 5px;
+}

@@ -1,0 +1,10 @@
+[{"id":1,"gender":"Man","age":"upto 20","willingTo":"Dating","Country":"Ukraine"},
+  {"id":2,"gender":"Woman","age":"20-30","willingTo":"Chating","Country":"USA"},
+  {"id":3,"gender":"Man","age":"30-40","willingTo":"Meeting","Country":"Britain"},
+  {"id":4,"gender":"Woman","age":"40 and older","willingTo":"Dating","Country":"Ukraine"},
+  {"id":5,"gender":"Man","age":"upto 20","willingTo":"Chating","Country":"USA"},
+  {"id":6,"gender":"Woman","age":"20-30","willingTo":"Meeting","Country":"Britain"},
+  {"id":7,"gender":"Man","age":"30-40","willingTo":"Dating","Country":"Ukraine"},
+  {"id":8,"gender":"Woman","age":"40 and older","willingTo":"Chating","Country":"USA"},
+  {"id":9,"gender":"Man","age":"upto 20","willingTo":"Meeting","Country":"Britain"},
+  {"id":10,"gender":"Woman","age":"20-30","willingTo":"Dating","Country":"Ukraine"}]
