@@ -1,0 +1,130 @@
+.contact-us{
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: left;
+}
+
+.contact-map {
+  display: inline-block;
+  width: 50%;
+  height: 310px;
+  background-color: gainsboro;
+  margin: 0;
+  padding: 0;
+}
+
+
+.contact--form {
+  display: inline-block;
+  width: 30%;
+  background-color: white;
+  overflow: auto;
+  text-align: left;
+  //border: 2px solid $text-color4;
+  //padding-bottom: 60px;
+  //margin-bottom: 40px;
+  //height: 400px;
+
+  margin-left: 30px;
+  button {
+    width: 100%;
+  }
+}
+
+.contact--messags-content {
+  padding: 20px 10px;
+}
+
+[class^="contact--msg"] {
+
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  //padding: 10px;
+  //height: 30px;
+  padding: 5px 10px;
+}
+
+.contact--msg-title {
+  background-color: #f7f7f7;
+  border-top: 1px solid #f2f2f2;
+  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
+  border-bottom: 0;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  span {
+    padding-top: 2px;
+    font-size: 12px;
+  }
+}
+
+.contact--msg-msg {
+  //display: block;
+  //width: 90%;
+  //margin: 0 auto;
+  //padding: 0;
+  background-color: white;
+  border-top: 0;
+  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  font-size: 10px;
+  font-weight: normal;
+  text-align: left;
+}
+
+.contact--leave-msg--form {
+  text-align: left;
+}
+
+.contact-form {
+  display: inline-block;
+  width: 40%;
+  text-align: left;
+  padding: 20px 30px;
+}
+
+
+
+.contact-input-title {
+  display: block;
+  width: 100%;
+  height: 50px;
+  color: #a0b9c6;
+  padding: 10px;
+  border: 1px solid $text-color4;
+  margin-bottom: 2px;
+}
+
+.contact-input-msg {
+  display: block;
+  width: 100%;
+  height: 75px;
+  color: #a0b9c6;
+  padding: 10px;
+  border: 1px solid $text-color4;
+  margin-bottom: 5px;
+}
+
+// ===== google map =====
+
+.GMap {
+  height: 100%;
+  //position: absolute;
+  //width: 100%;
+}
+.GMap-canvas {
+  top: 0px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.UpdatedText {
+  color: $text_color1;
+}

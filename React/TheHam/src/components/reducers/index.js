@@ -6,6 +6,7 @@ import {combineReducers} from 'redux';
 import todoStore from './TodoReducer';
 import aboutStore from './AboutReducer';
 import newsStore from './NewsReducer';
+import feedbackStore from './FeedbackReducer';
 // import usersFilterStore from './UserFilterReducer'
 
 
@@ -17,7 +18,8 @@ import newsStore from './NewsReducer';
 //
 //
 export default combineReducers({
-    newsStore
+    newsStore,
+    feedbackStore
     // usersFilterStore
 })
 

@@ -17,13 +17,11 @@ class News extends Component {
     }
 
     componentWillMount(){
-        console.log('component will mount');
         this.props.onGetInitNews();
         this.moreNews = false;
     }
 
     render(){
-        console.log('newsStore=', this.props.newsStore);
 
         let generateNewsCard = '';
         if ( this.props.newsStore ) {

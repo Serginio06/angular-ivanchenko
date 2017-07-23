@@ -2,6 +2,8 @@
 $body-background: #fff;
 $text_color1: #18cfab;
 $text_color2: #b8b8b8;
+$text-color3:#f8fcfe;
+$text-color4:#c4d1d1;
 $menu_bkg: #44433e;
 //$bkg_img_landing: #44433e;
 $h1--fontSize: 26px;
@@ -187,7 +189,8 @@ h4 {
   margin: 20px auto;
 }
 
-.green-btn {
+
+.green-btn-white-top {
   display: inline-block;
   @include btn-std();
   background-color: $text_color1;
@@ -199,7 +202,21 @@ h4 {
   color: white;
   font-size: 12px;
   text-transform: uppercase;
+}
 
+.green-btn {
+  display: inline-block;
+  @include btn-std();
+  background-color: $text_color1;
+  //border-top: 3px solid white;
+  //border-top-color: white;
+  //border-top-left-radius: 3px;
+  //border-top-right-radius: 3px;
+  padding: 10px 15px;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  //border-radius: 5px;
 }
 
 .blue-btn {
@@ -224,7 +241,7 @@ h4 {
   margin: auto;
 }
 
-.landing, .header__title, .about, .services, .portfolio, .landing, .members, .achievements, .news {
+.landing, .header__title, .about, .services, .portfolio, .landing, .members, .achievements, .news, .feedback, .contact-us, .footer {
   width: 100%;
   min-width: $max--blocks--width--mobile;
   text-align: center;

@@ -82,9 +82,10 @@ gulp.task('build-css', function() {
                .pipe(sourcemaps.init())  // Process the original sources
                .pipe(concat('all.scss'))
                .pipe(sass ().on ('error', sass.logError))
-               .pipe(sourcemaps.write())
-               .pipe(replace('./../../static', './React/TheHam/build'))
-                // Add the map to modified source.
+               .pipe(sourcemaps.write())// Add the map to modified source.
+               .pipe(replace('./../../static', './React/TheHam/build')) //unrem before publish on github pages
+               // .pipe(replace('./../../static', '.')) //unrem for local test
+
                .pipe(gulp.dest('src/css'));
 });
 

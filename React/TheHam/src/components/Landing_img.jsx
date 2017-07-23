@@ -18,7 +18,7 @@ class Landing_img extends Component {
                     <h1 className="uppercase landing-bkg--text-h1">We are creative</h1>
                     <h4>Nam varius accumsan elementum aliquam</h4>
                     <div className="landing-bkg-buttons">
-                        <button className="green-btn uppercase">explore now</button>
+                        <button className="green-btn-white-top uppercase">explore now</button>
                         <button className="blue-btn uppercase">purchase now</button>
                     </div>
                 </div>

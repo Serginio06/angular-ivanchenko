@@ -9,7 +9,7 @@ export default function newsStore(store = [''], action) {
 
 
     if ( action.type === "GET-INIT-NEWS" ) {
-        console.log('ACTIION GET-INIT-NEWS payload=',action.payload);
+
         let firstEight = action.payload.filter((item,index)=> {
             return index <= 7;
         });
@@ -17,7 +17,7 @@ export default function newsStore(store = [''], action) {
     }
 
     if ( action.type === "GET-MORE-NEWS" ) {
-        console.log('ACTIION GET-MORE-NEWS=',action.payload);
+        // console.log('ACTIION GET-MORE-NEWS=',action.payload);
         let firstEight = action.payload.filter((item,index)=> {
             return (index > 7 && index <= 15);
         });
@@ -27,9 +27,5 @@ export default function newsStore(store = [''], action) {
     return store;
 }
 
-
-// const taskStore = createStore (inputData,composeWithDevTools(applyMiddleware(thunk)));
-//
-// export default taskStore;
 
 
