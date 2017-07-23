@@ -17666,7 +17666,7 @@ function feedbackStore() {
     }
 
     if (action.type === "DELETE-FEEDBACK") {
-        console.log('ACTIION DELETE-FEEDBACK payload=', action.payload);
+        // console.log ('ACTIION DELETE-FEEDBACK payload=', action.payload);
 
         var newMsgArr = void 0;
         newMsgArr = store.filter(function (item, index, arr) {

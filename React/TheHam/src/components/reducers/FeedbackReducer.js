@@ -18,7 +18,7 @@ export default function feedbackStore(store = ['adsf'], action) {
     }
 
     if (action.type === "DELETE-FEEDBACK") {
-        console.log ('ACTIION DELETE-FEEDBACK payload=', action.payload);
+        // console.log ('ACTIION DELETE-FEEDBACK payload=', action.payload);
 
         let newMsgArr;
         newMsgArr = store.filter((item,index,arr)=>{
