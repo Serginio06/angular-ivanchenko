@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import newsPic1 from './../../static/images/service8.jpeg';
+import newsPic2 from './../../static/images/service7.jpeg';
+var newsPics = [newsPic1,newsPic2];
 
 class NewsCard extends Component {
 
@@ -6,7 +9,7 @@ class NewsCard extends Component {
         this.src = './React/TheHam/build/images/member2.jpeg';
         this.title = 'Amazing blog post';
         let outerElmeClass = '';
-
+        let newImg='';
         
 
         return (
@@ -20,11 +23,17 @@ class NewsCard extends Component {
                             outerElmeClass = 'news--card-outer-div';
                         }
 
+                        if ( index%2 === 0 ) {
+                         newImg= {backgroundImage:`url(${newsPics[0]})`}
+                        } else {
+                            newImg= {backgroundImage:`url(${newsPics[1]})`}
+                        }
+
                         let elem =
                             <div key={index} className="news-div">
                                 <div className={outerElmeClass} >
 
-                                    <div className="news--card-img"></div>
+                                    <div className="news--card-img" style={newImg}></div>
                                     {/*<img src={this.src} alt="" className="news--card-img"/>*/}
                                     <div className="news--card-name-div">
                                         <span className="news--card-name-div--name">{this.title}</span>

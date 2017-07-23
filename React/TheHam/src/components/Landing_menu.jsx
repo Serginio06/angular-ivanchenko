@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {menuIconClick} from './../js/menuHandler'
+import logoImg from './../../static/images/Logo.png';
 var Scroll    = require('react-scroll');
 
 var Link       = Scroll.Link;
@@ -13,7 +14,8 @@ class Landing_menu extends Component {
     constructor(props){
         super(props);
         this.state={
-            setActiveClass:'activeMenu'
+            setActiveClass:'activeMenu',
+            logoImg:{backgroundImage:`url(${logoImg})`}
         }
     }
 
@@ -39,7 +41,7 @@ class Landing_menu extends Component {
         // console.log('menuIconClick=', menuIconClick);
         return (
             <div className="header__title">
-                <div className="header__logo"></div>
+                <div className="header__logo" style={this.state.logoImg}></div>
                 <div className="header__menu" id="header__menu">
                     <ul>
                         <li className="uppercase"><a onClick={this.scrollToTop.bind(this)} href="#" id="firstMenuItem">Home</a></li>
