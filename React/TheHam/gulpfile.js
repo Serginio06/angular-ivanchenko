@@ -16,6 +16,7 @@ var replace = require('gulp-replace');
 // const plugins = require('gulp-load-plugins'); // replaces all your requires
 // var gulpLoadPlugins = require('gulp-load-plugins');
 // var plugins = gulpLoadPlugins();
+// var urlAdjuster = require('gulp-css-url-adjuster');
 
 var toChange1 = "url('./../../static";
 var changeOn1 = "url(''./React/TheHam/build";
@@ -77,11 +78,12 @@ gulp.task('watch', function () {
 gulp.task('build-css', function() {
     gutil.log ('Building css from sass...');
     return gulp.src('src/scss/**/*.scss')
+
                .pipe(sourcemaps.init())  // Process the original sources
                .pipe(concat('all.scss'))
                .pipe(sass ().on ('error', sass.logError))
-               .pipe(replace(toChange1, changeOn1))
                .pipe(sourcemaps.write())
+               .pipe(replace('./../../static', '.'))
                 // Add the map to modified source.
                .pipe(gulp.dest('src/css'));
 });
