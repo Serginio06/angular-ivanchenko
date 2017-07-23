@@ -8,6 +8,8 @@ class Feedback_leave_msg extends Component {
 
     addMsg(){
         this.props.addMsg(this.msgTitle.value, this.msgMsg.value);
+        this.msgTitle.value = '';
+            this.msgMsg.value = '';
     }
 
 

@@ -29,7 +29,7 @@ class News extends Component {
         }
 
         return(
-            <div className="news">
+            <div className="news" id="news">
                 <h2 className="black-text">Breaking news
                     <img src="./images/stripes.png" alt="" className="strips--img"/>
                 </h2>

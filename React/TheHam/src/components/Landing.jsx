@@ -12,7 +12,7 @@ class Landing extends Component {
 
 
         return(
-            <div className="landing">
+            <div className="landing" id="top">
                 <Landing_menu/>
                 <Landing_img/>
                 <Landing_features featuresImgArr={featuresImgPathArr}/>

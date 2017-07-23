@@ -1,11 +1,36 @@
 import React, {Component} from 'react';
 import {menuIconClick} from './../js/menuHandler'
+var Scroll    = require('react-scroll');
+
+var Link       = Scroll.Link;
+var DirectLink = Scroll.DirectLink;
+var Element    = Scroll.Element;
+var Events     = Scroll.Events;
+var scroll     = Scroll.animateScroll;
+var scrollSpy  = Scroll.scrollSpy;
 
 class Landing_menu extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            setActiveClass:'activeMenu'
+        }
+    }
 
     // menuIconClick() {
     //     console.log ('click on menu item');
     // }
+
+    handleSetActive(e){
+        console.log('e= ', e);
+        console.log('arguments= ', arguments);
+        // e.target.style.className = 'activeMenu';
+    }
+
+    handleSetInactive(e){
+        console.log(e);
+        // e.target.style.className = '';
+    }
 
 
 
@@ -17,12 +42,14 @@ class Landing_menu extends Component {
                 <div className="header__logo"></div>
                 <div className="header__menu" id="header__menu">
                     <ul>
-                        <li className="uppercase"><a href="#" id="firstMenuItem">Home</a></li>
-                        <li className="uppercase"><a href="#">Services</a></li>
-                        <li className="uppercase"><a href="#">Portfolio</a></li>
-                        <li className="uppercase"><a href="#">About</a></li>
-                        <li className="uppercase"><a href="#">News</a></li>
-                        <li className="uppercase"><a href="#">Contact</a></li>
+                        <li className="uppercase"><a onClick={this.scrollToTop.bind(this)} href="#" id="firstMenuItem">Home</a></li>
+                        <li className="uppercase"><Link activeClass="active" to="services" spy={true} smooth={'easeOutQuart'} duration={1000} offset={-60} isDynamic={true}>Services</Link></li>
+                        <li className="uppercase"><Link activeClass="active" to="about" spy={true} smooth={'easeOutQuart'} duration={1500} offset={-60} isDynamic={true}>About</Link></li>
+                        <li className="uppercase"><Link activeClass="active" to="portfolio" spy={true} smooth={'easeOutQuart'} duration={1000} offset={-60} isDynamic={true}>Work</Link></li>
+                        <li className="uppercase"><Link activeClass="active" to="achievements" spy={true} smooth={'easeOutQuart'} duration={1000} offset={-60} isDynamic={true}>Testimonial</Link></li>
+                        <li className="uppercase"><Link activeClass="active" to="feedback" spy={true} smooth={'easeOutQuart'} duration={1000} offset={-60} isDynamic={true}>Blog</Link></li>
+                        <li className="uppercase"><Link activeClass="active" to="members" spy={true} smooth={'easeOutQuart'} duration={1000} offset={-60} isDynamic={true}>Team</Link></li>
+                        <li className="uppercase"><Link activeClass="active" to="contacts" spy={true} smooth={'easeOutQuart'} duration={1000} offset={-60} isDynamic={true}>Contact</Link></li>
                         <hr/>
                     </ul>
                     <a href="javascript:void(0);" id="header__menu--icon"
@@ -30,6 +57,27 @@ class Landing_menu extends Component {
                 </div>
             </div>
         )
+    }
+
+    componentDidMount() {
+
+        Events.scrollEvent.register('begin', function() {
+            // console.log("begin", arguments);
+        });
+
+        Events.scrollEvent.register('end', function() {
+            // console.log("end", arguments);
+        });
+
+        scrollSpy.update();
+
+    }
+    scrollToTop() {
+        scroll.scrollToTop();
+    }
+    componentWillUnmount() {
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
     }
 }
 

@@ -31,7 +31,7 @@ class Feedback extends Component {
 
 
         return (
-            <div className="feedback">
+            <div className="feedback" id="feedback">
                 <h2 className="black-text">Feedback
                     <img src="./images/stripes.png" alt="" className="strips--img"/>
                 </h2>

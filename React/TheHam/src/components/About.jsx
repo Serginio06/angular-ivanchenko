@@ -40,7 +40,7 @@ class About extends Component {
 
 
         return (
-            <div className="about">
+            <div className="about" id="about">
                 <div className="about-content">
                     <img src={this.state.imgSrc} alt="about" className="about--img"/>
                     <div className="about--right-block" id="about--right-block">

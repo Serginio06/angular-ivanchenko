@@ -22,7 +22,7 @@ class OurServices extends Component {
 
 
         return (
-            <div className="services">
+            <div className="services" id="services">
                 <h2 className="black-text">Our services
                     <img src="./images/stripes.png" alt="" className="strips--img"/>
                 </h2>

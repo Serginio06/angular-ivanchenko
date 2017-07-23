@@ -28,7 +28,7 @@ class ContactUs extends Component {
 
     render() {
         return (
-            <div className="contact-us">
+            <div className="contact-us" id="contacts">
                 <div className="contact--leave-msg--form">
                     <div className="contact-map" id="map">
 

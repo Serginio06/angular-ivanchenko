@@ -10,6 +10,21 @@
 
 .news-div {
   display: inline-block;
+  //.news-date {
+  //  background-color: $text_color2;
+  //}
+
+  @include transitionAll(0.5s)
+}
+
+.news-div:hover {
+  display: inline-block;
+  .news-date {
+    background-color: $text_color1;
+  };
+    span.news--card-name-div--name {
+      color: $text_color1;
+    }
 }
 
 .news--card-outer-div {
@@ -25,16 +40,18 @@
   background-color: $text-color3;
 }
 
-[class^="news--card-outer-div"]:hover {
-  span.news--card-name-div--name {
-    color: $text_color1;
-  }
-}
+
+//[class^="news--card-outer-div"]:hover {
+//  span.news--card-name-div--name {
+//    color: $text_color1;
+//  }
+//}
 
 [class^="news--card-outer-div"]:hover {
-  div.news-date {
-    background-color: $text_color1;
-  }
+  //div.news-date {
+  //  background-color: $text_color1;
+  //}
+
 }
 
 .news--card-img {
@@ -66,6 +83,7 @@
   color: black;
   font-weight: bold;
   font-size: 14px;
+  @include transitionAll(0.5s);
 }
 
 .news-date {
@@ -81,11 +99,9 @@
   top: -204px;
   left: 125px;
   padding: 3px 10px;
+  @include transitionAll(0.5s);
 }
 
-.news-date:hover {
-  background-color: $text_color1;
-}
 
 
 

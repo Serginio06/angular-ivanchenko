@@ -7,7 +7,7 @@ class Members extends Component {
 
     render(){
         return(
-            <div className="members">
+            <div className="members" id="members">
                 <h2 className="black-text">Meet Out Team
                     <img src="./images/stripes.png" alt="" className="strips--img"/>
                 </h2>
