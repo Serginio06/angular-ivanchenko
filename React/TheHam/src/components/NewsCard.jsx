@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 class NewsCard extends Component {
 
     render() {
-        this.src = './images/member2.jpeg';
+        // this.src = './images/member2.jpeg';
+        this.src = './React/TheHam/build/images/member2.jpeg';
         this.title = 'Amazing blog post';
         let outerElmeClass = '';
 

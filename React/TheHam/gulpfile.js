@@ -12,6 +12,15 @@ const isProduction = gutil.env.production;
 const sass = require ('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 var run = require('gulp-run');
+var replace = require('gulp-replace');
+// const plugins = require('gulp-load-plugins'); // replaces all your requires
+// var gulpLoadPlugins = require('gulp-load-plugins');
+// var plugins = gulpLoadPlugins();
+
+var toChange1 = "url('./../../static";
+var changeOn1 = "url(''./React/TheHam/build";
+// let changeOn1 = "";
+// var yourDirectory = "/Content/images/";
 
 
 gulp.task('webpackBuild', function() {
@@ -70,11 +79,9 @@ gulp.task('build-css', function() {
     return gulp.src('src/scss/**/*.scss')
                .pipe(sourcemaps.init())  // Process the original sources
                .pipe(concat('all.scss'))
-
                .pipe(sass ().on ('error', sass.logError))
-
+               .pipe(replace(toChange1, changeOn1))
                .pipe(sourcemaps.write())
-
                 // Add the map to modified source.
                .pipe(gulp.dest('src/css'));
 });
@@ -165,5 +172,5 @@ gulp.task ('watch', function () {
 // });
 
 // gulp.task('default', ['copyIndexFile', 'copyData', 'copyImages', 'copyVendors','build-css', 'webpackBuild', 'watch']);
-gulp.task('default', ['build-css','copyVendors','copyIndexFile','webpackBuild','express', 'watch',]);
+gulp.task('default', ['build-css','copyVendors','copyIndexFile', 'copyImages','copyIcons', 'webpackBuild','express', 'watch',]);
 // gulp.task('default', ['webpackBuild']);

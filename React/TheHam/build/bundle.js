@@ -16646,7 +16646,8 @@ var NewsCard = function (_Component) {
         value: function render() {
             var _this2 = this;
 
-            this.src = './images/member2.jpeg';
+            // this.src = './images/member2.jpeg';
+            this.src = './React/TheHam/build/images/member2.jpeg';
             this.title = 'Amazing blog post';
             var outerElmeClass = '';
 
