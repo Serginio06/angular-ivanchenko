@@ -49,6 +49,6 @@
 
 .portfolio--category--popup.slideDown {
   @include slidedown(30px);
-  opacity: 1;
+  opacity: 0.6;
   //@include slideRight();
 }

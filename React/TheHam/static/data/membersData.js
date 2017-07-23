@@ -1,0 +1,40 @@
+export const membersData = [
+    {
+        "id": 1,
+        "name": "Al Masum",
+        "position": "Founder",
+        "src": "./images/member1.jpeg",
+        "facebook": "facebook",
+        "twitter": "twitter",
+        "skype": "skype",
+        "vimeo": "vimeo",
+    }, {
+        "id": 2,
+        "name": "Mis Liza",
+        "position": "UX Designer",
+        "src": "./images/member2.jpeg",
+        "facebook": "facebook",
+        "twitter": "twitter",
+        "skype": "skype",
+        "vimeo": "vimeo",
+    }, {
+        "id": 3,
+        "name": "Hasan Mahmud",
+        "position": "Web Designer",
+        "src": "./images/member3.jpeg",
+        "facebook": "facebook",
+        "twitter": "twitter",
+        "skype": "skype",
+        "vimeo": "vimeo",
+    }, {
+        "id": 4,
+        "name": "Afifa Janhat",
+        "position": "Web Designer",
+        "src": "./images/member4.jpeg",
+        "facebook": "facebook",
+        "twitter": "twitter",
+        "skype": "skype",
+        "vimeo": "vimeo",
+    },
+];
+

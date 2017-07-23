@@ -8,13 +8,38 @@ export function  handleScroll(elementId){
     let ElelementTop = element.getBoundingClientRect ().top;
     let windowHeight = window.innerHeight;
 
+    let promise = new Promise((resolve,reject)=>{
+
+        if ( ElelementTop <= windowHeight ) {
+            console.log('appeared');
+            return resolve(true);
+
+        } else {
+            console.log('out ............');
+            return resolve(false);
+        }
+    });
+
+
     if ( ElelementTop <= windowHeight ) {
         console.log('appeared');
-        return true;
+        return resolve(true);
 
     } else {
         console.log('out ............');
-        return false;
+        return resolve(false);
     }
+
+    return promise;
+
+
+    // if ( ElelementTop <= windowHeight ) {
+    //     console.log('appeared');
+    //     return cb(true);
+    //
+    // } else {
+    //     console.log('out ............');
+    //     return cb(false);
+    // }
 }
 

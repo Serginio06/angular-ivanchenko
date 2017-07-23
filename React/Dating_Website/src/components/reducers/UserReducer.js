@@ -4,14 +4,14 @@
 // import thunk from 'redux-thunk';
 
 
-export default function usersStore(store=[], action) {
+export default function usersStore(state =['fff'], action) {
 
-    if ( action.type === "GET-INIT-USERS" ) {
+    if ( action.type === "GET-INIT-NEWS" ) {
         console.log('ACTIION action.payload=',action.payload);
         return action.payload;
     }
 
-    return store;
+    return state;
 }
 
 

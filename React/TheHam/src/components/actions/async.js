@@ -15,23 +15,19 @@
 //     }, 2000)
 // };
 //
-export const asyncGetInitUsers = () => dispatch => {
 
-    console.log ('asyncGetInitUsers');
+export const asyncMoreNews = () => dispatch => {
+
+    console.log ('asyncGetInitNews');
 
     setTimeout (()=> {
-
-
         // fetch ('./usersData.json').then (resp=> {
-        fetch ('./usersData.json').then (resp =>resp.json ()).then (resp=> {
-
-            // console.log ('GET-INIT-USERS resp', resp.body.toString());
-            // console.log (JSON.stringify(resp.body.toString()));
+        fetch ('./data.json').then (resp =>resp.json ()).then (resp=> {
 
             console.log('resp',resp);
-            
+
             dispatch ({
-                type: "GET-INIT-USERS",
+                type: "GET-MORE-NEWS",
                 payload: resp
             })
 
@@ -40,19 +36,44 @@ export const asyncGetInitUsers = () => dispatch => {
     }, 0)
 };
 
-export const asyncSearch = (age) => dispatch => {
+
+export const asyncGetInitNews = () => dispatch => {
+
+    console.log ('asyncGetInitNews');
 
     setTimeout (()=> {
-        fetch ('usersData.json').then (resp=>resp.json ()).then (resp=> {
+        // fetch ('./usersData.json').then (resp=> {
+        fetch ('./data.json').then (resp =>resp.json ()).then (resp=> {
 
-            console.log ('Async SEARCH-USERS resp', resp);
+            console.log('resp',resp);
 
             dispatch ({
-                type: "SEARCH-USERS",
-                payload: age
+                type: "GET-INIT-NEWS",
+                payload: resp
             })
+
         });
 
-    }, 1500)
-
+    }, 0)
 };
+
+
+
+
+
+// export const asyncSearch = (age) => dispatch => {
+//
+//     setTimeout (()=> {
+//         fetch ('usersData.json').then (resp=>resp.json ()).then (resp=> {
+//
+//             console.log ('Async SEARCH-USERS resp', resp);
+//
+//             dispatch ({
+//                 type: "SEARCH-USERS",
+//                 payload: age
+//             })
+//         });
+//
+//     }, 1500)
+//
+// };

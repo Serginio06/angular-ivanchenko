@@ -1,0 +1,123 @@
+.members {
+  background-color: #ffffff;
+}
+
+.member--card-outer-div {
+  display: inline-block;
+  width: 175px;
+  margin-right: 26px;
+  overflow-x: auto;
+  @include transitionAll(0.5s);
+  background-color: #2e4a5b;
+}
+
+.member--card-outer-div-last{
+  display: inline-block;
+  width: 175px;
+  overflow-x: auto;
+  @include transitionAll(0.5s);
+  background-color: #2e4a5b;
+}
+
+[class^="member--card-outer-div"]:hover {
+  background-color: $text_color1;
+  span.member--card-name-div--position {
+    color: black;
+  }
+
+}
+.member--card-img {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 175px;
+  height: 152px;
+}
+
+.member--card-name-div {
+  display: block;
+  padding: 0;
+  margin: 0;
+  height: 51px;
+}
+
+.member--card-name-div {
+  padding: 10px;
+  span {
+    display: block;
+    text-align: left;
+  }
+}
+
+.member--card-name-div--name {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+.member--card-name-div--position{
+  color:$text_color1;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+[class^="member--card-social"] {
+  display: inline-block;
+  padding: 7px;
+  margin: 0;
+  width: 25%;
+  height: 43px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  z-index: 1000;
+  border-top: 2px solid #82929d;
+}
+
+
+//[class^="member--card-social"]:hover{
+//  background-color: crimson;
+//}
+
+.member--card-social-facebook {
+  @include transitionAll(0.5s);
+  border-right: 1px solid #adb8bf;
+}
+
+.member--card-social-facebook:hover {
+  background-color: #36609e;
+}
+
+.member--card-social-twitter {
+  @include transitionAll(0.5s);
+  //border-top: 2px solid #82929d;
+  border-right: 1px solid #adb8bf;
+}
+
+.member--card-social-twitter:hover {
+  background-color: #2ca9e1;
+}
+
+.member--card-social-skype {
+  @include transitionAll(0.5s);
+  //border-top: 2px solid #82929d;
+  border-right: 1px solid #adb8bf;
+}
+
+.member--card-social-skype:hover {
+  background-color: #1e99e2;
+}
+
+.member--card-social-vimeo {
+  @include transitionAll(0.5s);
+  //border-top: 2px solid #82929d;
+}
+
+.member--card-social-vimeo:hover {
+  background-color: #00adef;
+}
+
+//.member--card-social-facebook:hover {
+//  background-image: url("./../../static/icons/facebook.png");
+//
+//}

@@ -51,7 +51,7 @@ class PortfolioImg extends Component {
 
     render() {
         this.tab = [];
-        console.log ('this.props.portfolioImages= ', this.props.portfolioImages);
+        // console.log ('this.props.portfolioImages= ', this.props.portfolioImages);
 
         return (
             <div className="std__internal__block__mobile">

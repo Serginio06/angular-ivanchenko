@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {portfolioTabsTitle} from './../../static/data/portfolioTabsTitle';
 import PortfolioTabs from './PortfolioTabs.jsx';
-import {handleScroll} from './../js/scrollHandler'
+
 
 class Portfolio extends Component {
 
@@ -16,13 +16,7 @@ class Portfolio extends Component {
         )
     }
 
-    componentDidMount(){
-        window.addEventListener('scroll', handleScroll.bind(this, 'portfolio'));
-    }
 
-    componentWillUnmount(){
-        window.removeEventListener('scroll', handleScroll.bind(this, 'portfolio'));
-    }
 }
 
 export default Portfolio;

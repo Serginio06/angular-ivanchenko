@@ -11,9 +11,6 @@ class Landing_img extends Component {
                     <button type="button" className="landing-bkg-arrow-btn" aria-label="Left Align">
                         <span className="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
                     </button>
-                    {/*<button type="button" className="landing-bkg-arrow-btn" aria-label="Left Align">*/}
-                        {/*<i className="fa fa-chevron-left"></i>*/}
-                    {/*</button>*/}
                 </div>
 
                 <div className="landing-bkg--text">
@@ -29,9 +26,6 @@ class Landing_img extends Component {
                     <button type="button" className="landing-bkg-arrow-btn active" aria-label="Left Align">
                     <span className="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
                 </button>
-                    {/*<button type="button" className="landing-bkg-arrow-btn" aria-label="Left Align">*/}
-                        {/*<i className="fa fa-chevron-right"></i>*/}
-                    {/*</button>*/}
                 </div>
             </div>
         )

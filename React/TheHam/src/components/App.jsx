@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+// import {handleScroll} from './../js/scrollHandler'
 // import './../css/app.css';
 // import test from './../js/test'
 import Landing from './Landing.jsx';
@@ -32,15 +33,20 @@ class App extends Component {
                 <Members/>
                 <Achievements/>
                 <News/>
-
-
-
                 <Feedback/>
                 <ContactUs/>
                 <Footer/>
             </div>
         );
     }
+
+    // componentDidMount(){
+    //     window.addEventListener('scroll', handleScroll.bind(this, 'about-charts'));
+    // }
+    //
+    // componentWillUnmount(){
+    //     window.removeEventListener('scroll', handleScroll.bind(this, 'about-charts'));
+    // }
 }
 
 // export default App;

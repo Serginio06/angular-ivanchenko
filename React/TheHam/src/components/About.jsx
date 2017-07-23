@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AboutTabs from './AboutTabs.jsx'
 
+
 class About extends Component {
 
     constructor(props) {
@@ -42,7 +43,7 @@ class About extends Component {
             <div className="about">
                 <div className="about-content">
                     <img src={this.state.imgSrc} alt="about" className="about--img"/>
-                    <div className="about--right-block">
+                    <div className="about--right-block" id="about--right-block">
                         <h2 className="white-text">About Our Company
                             <img src="./images/stripes.png" alt="" className="strips--img"/></h2>
                         <div className="about--charts">
@@ -54,6 +55,8 @@ class About extends Component {
             </div>
         )
     }
+
+
 }
 
 export default About;

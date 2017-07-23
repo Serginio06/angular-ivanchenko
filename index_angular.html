@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" ng-app="myModule">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="project/public/assets/javascript/vendor/bootstrap-theme.css">
+    <link rel="stylesheet" href="project/public/assets/javascript/vendor/bootstrap.css">
+    <link rel="stylesheet" href="project/public/assets/css/style.css">
+    <link rel="stylesheet" href="project/public/assets/css/animate-switch.css">
+    <script src="project/public/assets/javascript/vendor/angular.js"></script>
+    <script src="project/public/assets/javascript/vendor/angular_route.js"></script>
+    <script src="project/public/assets/javascript/vendor/angular-scroll.min.js"></script>
+    <script src="project/public/assets/javascript/vendor/angular-animate.js"></script>
+    <script src="project/public/assets/javascript/vendor/angular-inview.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,700,800" rel="stylesheet">
+    <script src="project/public/assets/javascript/app.js"></script>
+
+
+    <title>KET</title>
+</head>
+<body onload="onLoad()" ng-controller="BodyCtrl">
+
+
+<div class="header" id="top">
+    <header-block></header-block>
+</div>
+
+
+<div ng-view></div>
+
+<div class="footer" id="footer">
+    <div class="footer__address--wrapper">
+        <div class="footer_arrow">
+            <p class="white_color">Awesome Address 432</p>
+            <p class="white_color">ourmail@sometype.com</p>
+            <p class="white_color">*321(0)32123343 492</p>
+        </div>
+    </div>
+    <div class="footer__bottom--wrapper">
+        <!--<button class="footer__bottom&#45;&#45;button" id="fixedbutton" ng-click="goTo('top')">-->
+        <button class="footer__bottom--button" ng-click="goTo('top')"></button>
+        <div class="footer__bottom--text"><p class="white_color">@ 2014 - <span class="blue-color">Kat</span> All Right
+            Reserved</p></div>
+    </div>
+</div>
+
+
+</body>
+</html>

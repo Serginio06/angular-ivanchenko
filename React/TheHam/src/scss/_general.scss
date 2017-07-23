@@ -69,15 +69,15 @@ $min--blocks--width--watch: 320px;
   margin-right: $marginRight;
 }
 
-@mixin slideUp (){
-    max-height: 0;
-    overflow-y: hidden;
+@mixin slideUp() {
+  max-height: 0;
+  overflow-y: hidden;
   //@include transitionMaxHeight(0.8s);
   @include transitionAll(0.8s);
-  }
+}
 
 @mixin slidedown($max-height) {
-    max-height: $max-height;
+  max-height: $max-height;
 }
 
 //@mixin slideLeft ($width){
@@ -95,9 +95,6 @@ $min--blocks--width--watch: 320px;
 //  //max-height: $max-height;
 //  padding-right: 0;
 //}
-
-
-
 
 //=========== FONTS ============
 //@font-face {
@@ -201,6 +198,8 @@ h4 {
   padding: 10px 15px;
   color: white;
   font-size: 12px;
+  text-transform: uppercase;
+
 }
 
 .blue-btn {
@@ -215,6 +214,7 @@ h4 {
   color: white;
   font-size: 12px;
   margin-left: 20px;
+  text-transform: uppercase;
 }
 
 .std__internal__block__mobile {
@@ -224,13 +224,16 @@ h4 {
   margin: auto;
 }
 
-.about, .services, .portfolio, .landing {
+.landing, .header__title, .about, .services, .portfolio, .landing, .members, .achievements, .news {
   width: 100%;
   min-width: $max--blocks--width--mobile;
   text-align: center;
   //height: 400px;
   overflow: auto;
-  margin-bottom: 40px;
+  //margin-bottom: 40px;
+  max-width: 1280px;
+  margin: 0 auto 0 auto;
+  padding: 10px 0 40px 0;
 }
 
 @media only screen and (min-width: 768px) {

@@ -13,7 +13,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 // ReactDOM.render(<App />, document.getElementById('root'));
-
+console.log('reducers= ', reducers);
 const store = createStore (reducers, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render (

@@ -104,6 +104,12 @@ gulp.task('copyImages', function () {
                .pipe(gulp.dest('build/images'))
 });
 
+gulp.task('copyIcons', function () {
+    gutil.log ('/Icons copying...');
+    return gulp.src('static/icons/**/*.*')
+               .pipe(gulp.dest('build/icons'))
+});
+
 gulp.task('copyVendors', function () {
 // gulp.task('default', function () {
     gutil.log ('/Vendors copying...');
@@ -135,6 +141,7 @@ gulp.task ('watch', function () {
     gulp.watch ('src/scss/**/*.scss', [ 'build-css']);
     gulp.watch ('static/data/*.*', [ 'copyData']);
     gulp.watch ('static/images/**/*.*', [ 'copyImages']);
+    gulp.watch ('static/icons/**/*.*', [ 'copyIcons']);
     gulp.watch ('static/vendors/**/*.*', [ 'copyVendors']);
     // gulp.watch ('source/assets/templates/**/*.*', [ 'templates-copy']);
     gulp.watch ('static/index.html', [ 'copyIndexFile']);
