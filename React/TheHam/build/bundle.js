@@ -18508,33 +18508,8 @@ var PortfolioImg = function (_Component) {
                         } },
                     'aslkfjdlksjd '
                 )
-            )
-
-            // <div className="services--tabs std__internal__block__mobile">
-            //     {/*<div className="services--tab">*/}
-            //         {/*{this.props.services.map ((item, index)=>*/}
-            //             {/*<div className="services--tab--title" ref={(tab)=>this.tab[index] = tab} key={index}*/}
-            //                  {/*onClick={this.onTabClick.bind (this, index)}>{item.title}</div>*/}
-            //         {/*)}*/}
-            //     {/*</div>*/}
-            //
-            //
-            //
-            //     <div className="service--tab--content">
-            //         <img src={this.state.tabSrc} className="service--tab--content--img"></img>
-            //         {/*<p className="service--tab--content--description">{this.state.tabText}</p>*/}
-            //         {/*<div className="service--tab--content--description">{this.state.tabText}</div>*/}
-            //     </div>
-            //
-            // </div>
-            ;
+            );
         }
-
-        // componentDidMount() {
-        //     this.activeTab = 0;
-        //     this.tab[0].className = "services--tab--title active"
-        // }
-
     }]);
 
     return PortfolioImg;
@@ -18572,8 +18547,6 @@ var PortfolioTabs = function (_Component) {
         var _this = _possibleConstructorReturn(this, (PortfolioTabs.__proto__ || Object.getPrototypeOf(PortfolioTabs)).call(this, props));
 
         _this.state = {
-            // tabSrc: this.props.services[0].src,
-            // tabText: this.props.services[0].text,
             portfolioImages: __WEBPACK_IMPORTED_MODULE_2__static_data_portfolioImgData_js__["a" /* portfolioImgData */]
         };
         return _this;
@@ -18582,13 +18555,18 @@ var PortfolioTabs = function (_Component) {
     _createClass(PortfolioTabs, [{
         key: 'onTabClick',
         value: function onTabClick(index, e) {
-
-            // this.setState({tabSrc: this.props.services[index].src});
-            // this.setState({tabText: this.props.services[index].text});
-
             this.tab[index].className = "portfolio--tab--title active";
             this.tab[this.activeTab].className = "portfolio--tab--title";
             this.activeTab = index;
+
+            if (index === 0) {
+                this.setState({ portfolioImages: __WEBPACK_IMPORTED_MODULE_2__static_data_portfolioImgData_js__["a" /* portfolioImgData */] });
+            } else {
+                var filteredImages = __WEBPACK_IMPORTED_MODULE_2__static_data_portfolioImgData_js__["a" /* portfolioImgData */].filter(function (item) {
+                    return item.category === index + 1;
+                });
+                this.setState({ portfolioImages: filteredImages });
+            }
         }
     }, {
         key: 'render',
@@ -18614,7 +18592,8 @@ var PortfolioTabs = function (_Component) {
                         );
                     })
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__PortfolioImg_jsx__["a" /* default */], { portfolioImages: this.state.portfolioImages, portfolioTabsTitle: this.props.portfolioTabsTitle })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__PortfolioImg_jsx__["a" /* default */], { portfolioImages: this.state.portfolioImages,
+                    portfolioTabsTitle: this.props.portfolioTabsTitle })
             );
         }
     }, {

@@ -64,32 +64,9 @@ class PortfolioImg extends Component {
                 <div className="portfolio--category--popup" ref={(div)=>this.categoryPopup = div}>aslkfjdlksjd </div>
             </div>
 
-
-
-            // <div className="services--tabs std__internal__block__mobile">
-            //     {/*<div className="services--tab">*/}
-            //         {/*{this.props.services.map ((item, index)=>*/}
-            //             {/*<div className="services--tab--title" ref={(tab)=>this.tab[index] = tab} key={index}*/}
-            //                  {/*onClick={this.onTabClick.bind (this, index)}>{item.title}</div>*/}
-            //         {/*)}*/}
-            //     {/*</div>*/}
-            //
-            //
-            //
-            //     <div className="service--tab--content">
-            //         <img src={this.state.tabSrc} className="service--tab--content--img"></img>
-            //         {/*<p className="service--tab--content--description">{this.state.tabText}</p>*/}
-            //         {/*<div className="service--tab--content--description">{this.state.tabText}</div>*/}
-            //     </div>
-            //
-            // </div>
         )
     }
 
-    // componentDidMount() {
-    //     this.activeTab = 0;
-    //     this.tab[0].className = "services--tab--title active"
-    // }
 }
 
 export default PortfolioImg;
