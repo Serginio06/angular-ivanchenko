@@ -285,7 +285,7 @@ h4 {
   position: relative;
   top: 10px;
   right: 10%;
-  background-image: url("./images/Logo.png");
+  background-image: url("./React/TheHam/build/images/Logo.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -598,7 +598,7 @@ hr {
   margin-top: 0;
   position: relative;
   z-index: 1000;
-  background-image: url("./images/member2.jpeg");
+  background-image: url("./React/TheHam/build/images/member2.jpeg");
   display: block;
   padding: 0;
   margin: 0;

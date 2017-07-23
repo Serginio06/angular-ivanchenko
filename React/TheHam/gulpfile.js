@@ -83,7 +83,7 @@ gulp.task('build-css', function() {
                .pipe(concat('all.scss'))
                .pipe(sass ().on ('error', sass.logError))
                .pipe(sourcemaps.write())
-               .pipe(replace('./../../static', '.'))
+               .pipe(replace('./../../static', './React/TheHam/build'))
                 // Add the map to modified source.
                .pipe(gulp.dest('src/css'));
 });
