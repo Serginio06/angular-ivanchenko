@@ -102,6 +102,22 @@
   @include transitionAll(0.5s);
 }
 
+.news-details-form {
+  background-color: white;
+  overflow: auto;
+  border: 2px solid $text-color4;
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+  @include transitionAll(0.8s)
+  //height: 450px;
+  //height: 400px;
+}
+
+.news-details--date{
+  font-size: 14px;
+  font-weight: bold;
+  color: $text_color1;
+}
 
 
 

@@ -286,15 +286,15 @@ hr {
 
   }
 
-  a:focus {
-    color: $text-color1;
-    text-decoration: none;
-    outline: none;
-    outline-offset: 0;
-    border-bottom-style: solid;
-    border-bottom-color: $text-color1;
-    border-bottom-width: 1px;
-  }
+  //a:focus {
+  //  color: red;
+  //  text-decoration: none;
+  //  outline: none;
+  //  outline-offset: 0;
+  //  border-bottom-style: solid;
+  //  border-bottom-color: red;
+  //  border-bottom-width: 1px;
+  //}
 
   //a.activeMenu {
   //  color: $text-color1;

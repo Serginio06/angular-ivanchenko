@@ -33,15 +33,22 @@ class App extends Component {
                 <Members/>
                 <Achievements/>
                 <News/>
+                <div className="news-details">{this.props.children}</div>
                 <Feedback/>
                 <ContactUs/>
                 <Footer/>
+
+                {/*<div>*/}
+                    {/*<h3 className="black-text">test routes</h3>*/}
+                    {/*<Link to="/details"><button className="btn btn-lg btn-success">News details</button></Link>*/}
+                    {/*<div className="panel">{this.props.children}</div>*/}
+                {/*</div>*/}
             </div>
         );
     }
 
     // componentDidMount(){
-    //     window.addEventListener('scroll', handleScroll.bind(this, 'about-charts'));
+    //     // window.addEventListener('scroll', handleScroll.bind(this, 'about-charts'));
     // }
     //
     // componentWillUnmount(){
@@ -49,19 +56,19 @@ class App extends Component {
     // }
 }
 
-// export default App;
-export default connect (
-    stores => (
-    {
-        tasksStore: stores.todoStore,
-        // aboutStore: stores.aboutStore
-    }
-    ),
-    dispatch => (
-    {
-        onShowTask: ()=> {
-            dispatch ({type: "SHOW-TASKS"})
-        },
-    })
-
-) (App);
+export default App;
+// export default connect (
+//     stores => (
+//     {
+//         tasksStore: stores.todoStore,
+//         // aboutStore: stores.aboutStore
+//     }
+//     ),
+//     dispatch => (
+//     {
+//         onShowTask: ()=> {
+//             dispatch ({type: "SHOW-TASKS"})
+//         },
+//     })
+//
+// ) (App);
