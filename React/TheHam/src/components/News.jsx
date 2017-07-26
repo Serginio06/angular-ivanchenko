@@ -6,20 +6,29 @@ import {asyncGetInitNews, asyncMoreNews} from './actions/async'
 
 class News extends Component {
 
+    // constructor(){
+    //     super();
+    //     this.state = {
+    //         moreNews:false
+    //     }
+    // }
+
+
 
     moreNewsClick(){
-        if ( this.moreNews ) {
-            this.props.onGetInitNews();
-            this.moreNews = false;
-        } else {
-            this.props.onMoreNews();
-            this.moreNews = true;
+
+        // console.log('this.props.newsStore.length=', this.props.newsStore.length);
+        
+        if ( this.moreNews <=  25) {
+            this.props.onMoreNews(this.moreNews);
+            this.moreNews = this.moreNews + 8;
         }
+
     }
 
     componentWillMount(){
         this.props.onGetInitNews();
-        this.moreNews = false;
+        this.moreNews = 15;
     }
 
     render(){
@@ -53,15 +62,21 @@ class News extends Component {
 export default connect (
     store => (
     {
-        // userStore: store.newsStore.filter (userStore => userStore.age.includes (store.usersFilterStore))
-        newsStore: store.newsStore
+        // userStore: store.newsStore.filter ((item,index) => userStore.age.includes (store.usersFilterStore))
+        newsStore: store.newsStore.filter ((item,index) => {return index <= store.newsFilterStore}),
+        // newsStore: store.newsStore,
+        newsFilterStore: store.newsFilterStore
         // usersFilterStore: store.usersFilterStore
     }
     ),
     dispatch => (
     {
-        onMoreNews: ()=> {
-            dispatch (asyncMoreNews ())
+        onMoreNews: (quantity)=> {
+            dispatch({
+                type: "GET-MORE-NEWS",
+                payload: quantity
+            });
+            // dispatch (asyncMoreNews (quantity))
         },
         onGetInitNews: ()=> {
             dispatch (asyncGetInitNews ());

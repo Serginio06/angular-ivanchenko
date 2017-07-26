@@ -45,5 +45,6 @@ ReactDOM.render (
                 <Route path="/news-details/:id" component={NewsDetails} mydata={333}></Route>
                 <Route path="/service/:category" component={ServicesTabs}></Route>
             </Route>
+            <Route path="*" component={App}/>
         </Router>
     </Provider>, document.getElementById ('root'));

@@ -18,7 +18,8 @@ class NewsCard extends Component {
                 {this.props.news.map ((item, index)=> {
                         let transformedDate = new Date (item.date);
 
-                        if (index === 3 || index === 7) {
+                        {/*if (index === 3 || index === 7) {*/}
+                        if (index%3===0 || index%7===0 || index%11===0 || index%15===0 || index%19===0) {
                             outerElmeClass = 'news--card-outer-div-last';
                         } else {
                             outerElmeClass = 'news--card-outer-div';

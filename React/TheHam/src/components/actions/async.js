@@ -1,18 +1,18 @@
 
-export const asyncMoreNews = () => dispatch => {
+export const asyncMoreNews = (quantity) => dispatch => {
 
     setTimeout (()=> {
         // fetch ('./usersData.json').then (resp=> {
-        fetch ('./data/data.json').then (resp =>resp.json ()).then (resp=> {
+        // fetch ('./data/data.json').then (resp =>resp.json ()).then (resp=> {
 
             // console.log('resp',resp);
 
             dispatch ({
                 type: "GET-MORE-NEWS",
-                payload: resp
-            })
+                payload: quantity
+            });
 
-        });
+        // });
 
     }, 0)
 };

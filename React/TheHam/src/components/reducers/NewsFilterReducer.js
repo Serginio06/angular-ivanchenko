@@ -3,12 +3,13 @@
 // import {composeWithDevTools} from 'redux-devtools-extension';
 // import thunk from 'redux-thunk';
 
-const initialState = '';
+const initialState = 7;
 
-export default function usersFilterStore(state = initialState, action) {
+export default function newsFilterStore(state = initialState, action) {
 
-    if (action.type === "SEARCH-USERS") {
-        console.log ('ACTIION SEARCH-USERS');
+    if (action.type === "GET-MORE-NEWS") {
+        // console.log('ACTIION GET-MORE-NEWS=',action.payload);
+
         return action.payload;
     }
     return state;
