@@ -40,6 +40,7 @@ class TransitionGroupComponents extends React.Component {
         }
 
     }
+
     render() {
         return <div className='react-transition-group-wrapper'>
             <div>REACT CSS TRANSITION GROUP</div>

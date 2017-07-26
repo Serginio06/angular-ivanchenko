@@ -27,10 +27,6 @@
   margin-top: 30px;
 }
 
-.about--charts {
-  margin-top: 30px;
-}
-
 .about--tab--title {
   text-align: left;
   display: inline-block;
@@ -71,16 +67,6 @@
   margin-bottom: 10px;
 }
 
-.about--chart-value {
-  color: white;
-  font-size: 10px;
-  padding: 3px 10px;
-  margin: 0;
-  //width: 70%;
-  height: inherit;
-  //background-color: red;
-}
-
 .about-biography-text, .about-history-text {
   color: $text_color2;
 }
@@ -112,4 +98,106 @@
   display: inline-block;
   width: 50%;
   text-align: left;
+}
+
+[class^="about--chart-value"] {
+  color: white;
+  font-size: 10px;
+  padding: 3px 10px;
+  margin: 0;
+  height: inherit;
+  text-transform: uppercase;
+}
+
+.chartTextSpan{
+  width: 100px;
+  position: absolute;
+}
+
+.about--chart-value-1 {
+  background-color: #9c5da5;
+  width: 72%;
+  //overflow: hidden;
+  //z-index: 1000;
+  height: 19px;
+}
+
+.about--chart-value-2 {
+  background-color: #11b0de;
+  width: 84%;
+  height: 19px;
+}
+
+.about--chart-value-3 {
+  background-color: #d67f7f;
+  width: 66%;
+  height: 19px;
+}
+
+.about--chart-value-4 {
+  background-color: #20bc9d;
+  width: 90%;
+  height: 19px;
+}
+
+.about--chart-value-5 {
+  background-color: #bb8a36;
+  width: 84%;
+  height: 19px;
+}
+
+.about--charts {
+  margin-top: 30px;
+}
+
+.transition-1-enter.transition-1-enter-active {
+  transition: 3000ms;
+  width: 72%;
+  //overflow: hidden;
+}
+
+.transition-1-enter {
+  width: 0;
+  //overflow: hidden;
+}
+
+.transition-2-enter.transition-2-enter-active {
+  transition: 3000ms;
+  width: 84%;
+}
+
+.transition-2-enter {
+  width: 0;
+  //overflow: hidden;
+}
+
+.transition-3-enter.transition-3-enter-active {
+  transition: 3000ms;
+  width: 66%;
+}
+
+.transition-3-enter {
+  width: 0;
+  //overflow: hidden;
+}
+
+.transition-4-enter.transition-4-enter-active {
+  transition: 3000ms;
+  width: 90%;
+}
+
+.transition-4-enter {
+  width: 0;
+  //overflow: hidden;
+}
+
+.transition-5-enter.transition-5-enter-active {
+  transition: 3000ms;
+  width: 84%;
+  //overflow: hidden;
+}
+
+.transition-5-enter {
+  width: 0;
+  //overflow: hidden;
 }
