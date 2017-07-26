@@ -25,6 +25,21 @@
     color: black;
   }
 
+  .img-content button{
+    opacity: 1;
+    //display: block;
+    //background-repeat: no-repeat;
+    //background-size: cover;
+    //background-position: center;
+    //background-color: transparent;
+    //border: 0;
+    //position:absolute;
+    //top:50%;
+    //left:50%;
+    //width: 40px;
+    //height: 40px;
+  }
+
 }
 .member--card-img {
   display: block;
@@ -117,7 +132,25 @@
   background-color: #00adef;
 }
 
-//.member--card-social-facebook:hover {
-//  background-image: url("./../../static/icons/facebook.png");
-//
-//}
+.img-content{
+  position:relative;
+}
+
+.img-content button{
+  //display: none;
+  opacity: 0;
+  @include transitionAll(0.5s);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%,-50%);
+}
+
+

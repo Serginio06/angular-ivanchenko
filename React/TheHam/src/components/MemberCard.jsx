@@ -8,14 +8,17 @@ class MemberCard extends Component {
         return (
             <div className="member--cards std__internal__block__mobile" id="member--cards">
                 {this.props.membersData.map ((item, index)=> {
-                        if (this.props.membersData.length-1 === index) {
+                        if (this.props.membersData.length - 1 === index) {
                             outerElmeClass = 'member--card-outer-div-last';
                         } else {
                             outerElmeClass = 'member--card-outer-div';
                         }
 
                         let elem = <div className={outerElmeClass} key={index}>
-                            <img src={item.src} alt="" className="member--card-img"/>
+                            <div className="img-content">
+                                <img src={item.src} alt="" className="member--card-img"/>
+                                <button style={{backgroundImage:`url('icons/roundBtn.png')`}}></button>
+                            </div>
                             <div className="member--card-name-div">
                                 <span className="member--card-name-div--name">{item.name}</span>
                                 <span className="member--card-name-div--position">{item.position}</span>
