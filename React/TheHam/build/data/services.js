@@ -1,13 +1,13 @@
 export const services = [
   {
     "id":1,
-    "title": "Web design",
+    "title": "Web Design",
     "src":"./images/service1.jpeg",
     "text":"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
   },
   {
     "id":2,
-    "title":"Graphic design",
+    "title":"Graphic Design",
     "src":"./images/service2.jpeg",
     "text":"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu."
   },
