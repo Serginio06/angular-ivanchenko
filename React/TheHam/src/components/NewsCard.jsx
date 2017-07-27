@@ -15,11 +15,12 @@ class NewsCard extends Component {
 
         return (
             <div className="news--cards std__internal__block__mobile" id="news--cards">
-                {this.props.news.map ((item, index)=> {
+                {this.props.news.map (
+                    (item, index)=> {
                         let transformedDate = new Date (item.date);
 
-                        {/*if (index === 3 || index === 7) {*/}
-                        if (index%3===0 || index%7===0 || index%11===0 || index%15===0 || index%19===0) {
+
+                        if (index % 3 === 0 || index % 7 === 0 || index % 11 === 0 || index % 15 === 0 || index % 19 === 0) {
                             outerElmeClass = 'news--card-outer-div-last';
                         } else {
                             outerElmeClass = 'news--card-outer-div';
@@ -32,8 +33,8 @@ class NewsCard extends Component {
                         }
 
                         let elem =
-                            <Link key={index} to={"/news-details/"+ item.id}>
-                                <div  className="news-div">
+                            <Link key={index} to={"/news-details/" + item.id}>
+                                <div className="news-div">
                                     <div className={outerElmeClass}>
 
                                         <div className="news--card-img" style={newImg}></div>
@@ -48,9 +49,11 @@ class NewsCard extends Component {
                                         className="news-date">{transformedDate.getDate ()} {transformedDate.toLocaleString ("en-us", {month: "short"})}</div>
                                 </div>
                             </Link>
+
                         return elem
                     }
-                )}
+                )
+                }
             </div>
         )
     }
