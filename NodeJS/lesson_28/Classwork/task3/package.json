@@ -1,0 +1,15 @@
+{
+  "name": "dinamika_development_nodejs",
+  "version": "0.0.1",
+  "description": "lessons and project for nodejs",
+  "main": "./main.js",
+  "scripts": {
+    "test": "node main.js text data for test file",
+    "start": "node main.js"
+  },
+  "keywords": [
+    "nodeJS"
+  ],
+  "author": "Sergii Ivanchenko",
+  "license": "ISC"
+}
