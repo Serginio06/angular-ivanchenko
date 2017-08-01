@@ -8,14 +8,13 @@ let fileNumber = 1;
 var server = http.createServer (function (req, res) {
     let receivedData = '';
 
-
     if (req.url != "/favicon.ico" && req.url != "/robots.txt") {
 
         if (req.method === "POST" && req.url === "/test") {
 
             req.pipe (res);
 
-        } else {
+        } else if(req.url === "/") {
 
             let filePath = path.join ('./' + fileNumber + ".txt");
             let writeStream = fs.WriteStream (filePath);
@@ -27,11 +26,15 @@ var server = http.createServer (function (req, res) {
             res.end ();
             fileNumber++;
 
+        } else {
+            res.setHeader('Content-Type', 'text/html');
+            res.writeHead(404,'Requested resource not found');
+            res.write("<h2>Sorry, requested resource not found</h2>");
+            res.end();
         }
     }
     else {
         res.end ();
-
     }
 
 
