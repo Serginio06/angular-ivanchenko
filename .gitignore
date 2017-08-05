@@ -21,7 +21,7 @@ links.txt
 .sass-cache/
 coverage/
 node_modules/
-public/
+
 $RECYCLE.BIN/
 _sandbox1_animation/
 _sandbox2_modalWindow/
