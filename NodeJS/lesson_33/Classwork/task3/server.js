@@ -34,7 +34,7 @@ server.post('/users', function (req,res) {
 });
 
 server.put('/users/:index', function (req,res) {
-    users.push(JSON.parse('{"name": "random user", "age": 30}'));
+    // users.push(JSON.parse('{"name": "random user", "age": 30}'));
 
     // {name: 'updated name', age: 'updated age'}
     updateUser(req.params.index, 'updated name','updated age');
