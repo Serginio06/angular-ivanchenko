@@ -1,0 +1,20 @@
+{
+  "name": "dinamika_development_nodejs",
+  "version": "0.0.1",
+  "description": "lessons and project for nodejs",
+  "main": "./app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "nodeJS"
+  ],
+  "author": "Sergii Ivanchenko",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "serve-index": "^1.9.0",
+    "socket.io": "^2.0.3"
+  }
+}
