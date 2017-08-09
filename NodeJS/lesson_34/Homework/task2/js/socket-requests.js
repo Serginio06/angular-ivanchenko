@@ -8,7 +8,6 @@ module.exports = function (server) {
     io.on('connection', function (socket) {
 
         socket.on('send_message',function (data) {
-            console.log('message received = ', data);
             socket.emit('chat_message',data);
             socket.emit('msg_broadcated')
 
