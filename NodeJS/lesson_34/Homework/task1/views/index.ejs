@@ -1,0 +1,31 @@
+<%- include('./header.ejs') %>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+    function initSocket() {
+        var socket = io.connect('http://localhost:1337/message');
+
+        socket.on('connect_error',function (err) {
+            console.log('connection error= ', err);
+        });
+
+        socket.on('message',function (data) {
+            var elem = document.getElementById('message-received');
+            elem.innerHTML = data.text;
+
+            socket.emit('receive_message','message received')
+        })
+    }
+</script>
+
+<body onload="initSocket()">
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Result of 'greet' event</div>
+        <div class="panel-body">
+            <span class="label label-success" id="message-received"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
