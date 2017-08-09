@@ -1,0 +1,69 @@
+<%- include('./header.ejs') %>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket;
+
+    function initSocket() {
+        socket = io.connect ('http://localhost:1337');
+
+        socket.on ('connect_error', function (err) {
+            console.log ('connection error= ', err);
+        });
+
+        socket.on ('chat_message', function (data) {
+            var elem = document.getElementById ('message-received');
+            var spanEl = document.createElement('span');
+            spanEl.setAttribute('class','label label-success');
+//            spanEl.innerHTML= 'Localhost send:';
+            spanEl.innerHTML= " <%= userName%> " + " send:";
+
+            var msgEl = document.createTextNode( ' ' +  data.text);
+            var brEl = document.createElement('br');
+            elem.appendChild(spanEl);
+            elem.appendChild(msgEl);
+            elem.appendChild(brEl);
+        });
+
+        socket.on('msg_broadcated', function () {
+            var inputEl = document.getElementById('input-msg');
+            inputEl.value = '';
+        })
+    }
+
+    function sendMsg() {
+        var inputEl = document.getElementById('input-msg');
+
+        if(inputEl.value){
+            socket.emit('send_message',{text:inputEl.value})
+        }
+    }
+
+    function logOut() {
+        window.location.href = '/logout';
+    }
+
+</script>
+
+<body onload="initSocket()">
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><%= userName %>, write your message</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Message text</span>
+                    <input type="text" class="form-control" aria-describedby="basic-addon1" id="input-msg">
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="sendMsg()">Send</button>
+            <button class="btn btn-danger" onclick="logOut()">Log out</button>
+        </div>
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading">Chat messages</div>
+        <div class="panel-body" id="message-received">
+        </div>
+    </div>
+</div>
+</body>
+</html>
