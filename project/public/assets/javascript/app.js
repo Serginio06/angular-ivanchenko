@@ -30,8 +30,8 @@ var menuItemClick = function () {
         //        });
         "use strict";
         angular.module ('myModule', ['duScroll', 'ngAnimate', 'angular-inview', 'ngRoute'])
-               .constant('path', {basePath: '/angular-ivanchenko/project/public/'})
-               // .constant ('path', {basePath: '/project/public/'})
+               // .constant('path', {basePath: '/angular-ivanchenko/project/public/'})
+               .constant ('path', {basePath: '/project/public/'})
                .controller ('BodyCtrl', BodyCtrl)
                .controller ('articleCtrl', articleCtrl)
                .service ('MainService', MainService)
@@ -396,19 +396,19 @@ var menuItemClick = function () {
             var socialIcons = [
                 {
                     name: 'facebook',
-                    src: path.basePath + 'assets/images/icons/facebook-active.png'
+                    src: path.basePath + 'assets/images/icons/facebook.png'
                 },
                 {
                     name: 'google',
-                    src: path.basePath + 'assets/images/icons/google-active.png'
+                    src: path.basePath + 'assets/images/icons/tweeter.png'
                 },
                 {
                     name: 'tweeter',
-                    src: path.basePath + 'assets/images/icons/tweeter-active.png'
+                    src: path.basePath + 'assets/images/icons/google.png'
                 },
                 {
                     name: 'dribble',
-                    src: path.basePath + 'assets/images/icons/dribble-active.png'
+                    src: path.basePath + 'assets/images/icons/dribble.png'
                 },
 
             ];
