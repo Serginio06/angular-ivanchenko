@@ -23,15 +23,11 @@ var menuItemClick = function () {
 
 (
     function () {
-        // angular.module('app.config',[])
-        //        .value('app.config', {f
-        //            // basePath: '/' // Set your base path here
-        //            basePath: 'project/public/' // Set your base path here
-        //        });
         "use strict";
         angular.module ('myModule', ['duScroll', 'ngAnimate', 'angular-inview', 'ngRoute'])
                //basePath for deployment
                .constant('path', {basePath: '/angular-ivanchenko/project/public/'})
+
                //basePath for local launch
                // .constant ('path', {basePath: '/project/public/'})
                .controller ('BodyCtrl', BodyCtrl)
@@ -148,10 +144,8 @@ var menuItemClick = function () {
 
             //=============== Anchor smooth scroll =====================
 
-            var top = 40;
+            var top = 0;
             var duration = 2000; //milliseconds
-
-            // console.log('$location.hash= ', $location.hash);
 
             $timeout (function () {
 
@@ -165,11 +159,8 @@ var menuItemClick = function () {
             $scope.goTo = function (id) {
 
                 $location.path ("");
-                // $location.hash("");
-                // $location.search("");
-                // $anchorScroll ();
 
-                var offset = 70;
+                var offset = 40;
                 var targetElement = angular.element (document.getElementById (id));
 
                 if (targetElement.length > 0) {
@@ -187,8 +178,7 @@ var menuItemClick = function () {
                             $document.scrollToElement (targetElement, offset, duration);
                         }
 
-
-                    });
+                    },200);
 
 
                 }

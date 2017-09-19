@@ -23,15 +23,11 @@ var menuItemClick = function () {
 
 (
     function () {
-        // angular.module('app.config',[])
-        //        .value('app.config', {f
-        //            // basePath: '/' // Set your base path here
-        //            basePath: 'project/public/' // Set your base path here
-        //        });
         "use strict";
         angular.module ('myModule', ['duScroll', 'ngAnimate', 'angular-inview', 'ngRoute'])
                //basePath for deployment
                .constant('path', {basePath: '/angular-ivanchenko/project/public/'})
+
                //basePath for local launch
                // .constant ('path', {basePath: '/project/public/'})
                .controller ('BodyCtrl', BodyCtrl)
@@ -59,7 +55,7 @@ var menuItemClick = function () {
                 })
                 .when ('/article/:id', {
                     // template:'<p>article id={{myId}} msg={{msg}} should be here</p>',
-                    templateUrl: path.basePath + '/assets/templates/news-article.html',
+                    templateUrl: path.basePath + 'assets/templates/news-article.html',
                     controller: 'articleCtrl'
                 })
                 .otherwise ({
@@ -72,7 +68,7 @@ var menuItemClick = function () {
 // ================================== DIRECTIVES ===========================================
         function achievements(path) {
             var ddo = {
-                templateUrl: path.basePath + '/assets/templates/achievements.html'
+                templateUrl: path.basePath + 'assets/templates/achievements.html'
             };
             return ddo;
         }
@@ -81,7 +77,7 @@ var menuItemClick = function () {
             var ddo = {
                 restrict: 'E',
                 // templateUrl: '../assets/templates/block-header.html',
-                templateUrl: path.basePath + '/assets/templates/block-header.html',
+                templateUrl: path.basePath + 'assets/templates/block-header.html',
                 scope: {
                     content: '=',
                     h2Color: '@'
@@ -96,7 +92,7 @@ var menuItemClick = function () {
             var ddo = {
                 restrict: 'E',
                 // templateUrl: '../assets/templates/team-members.html'
-                templateUrl: path.basePath + '/assets/templates/team-members.html'
+                templateUrl: path.basePath + 'assets/templates/team-members.html'
             };
             return ddo;
         }
@@ -104,7 +100,7 @@ var menuItemClick = function () {
         function newsBlock(path) {
             var ddo = {
                 // templateUrl: '../assets/templates/news-block.html'
-                templateUrl: path.basePath + '/assets/templates/news-block.html'
+                templateUrl: path.basePath + 'assets/templates/news-block.html'
             };
             return ddo;
         }
@@ -112,7 +108,7 @@ var menuItemClick = function () {
         function contactForm(path) {
             var ddo = {
                 // templateUrl:'../assets/templates/contact-form.html'
-                templateUrl: path.basePath + '/assets/templates/contact-form.html'
+                templateUrl: path.basePath + 'assets/templates/contact-form.html'
             };
             return ddo;
         }
@@ -120,7 +116,7 @@ var menuItemClick = function () {
         function headerBlock(path) {
             var ddo = {
                 // templateUrl:'../assets/templates/contact-form.html'
-                templateUrl: path.basePath + '/assets/templates/header-block.html'
+                templateUrl: path.basePath + 'assets/templates/header-block.html'
             };
             return ddo;
 
@@ -148,10 +144,8 @@ var menuItemClick = function () {
 
             //=============== Anchor smooth scroll =====================
 
-            var top = 40;
+            var top = 0;
             var duration = 2000; //milliseconds
-
-            // console.log('$location.hash= ', $location.hash);
 
             $timeout (function () {
 
@@ -165,11 +159,8 @@ var menuItemClick = function () {
             $scope.goTo = function (id) {
 
                 $location.path ("");
-                // $location.hash("");
-                // $location.search("");
-                // $anchorScroll ();
 
-                var offset = 70;
+                var offset = 40;
                 var targetElement = angular.element (document.getElementById (id));
 
                 if (targetElement.length > 0) {
@@ -187,8 +178,7 @@ var menuItemClick = function () {
                             $document.scrollToElement (targetElement, offset, duration);
                         }
 
-
-                    });
+                    },200);
 
 
                 }
