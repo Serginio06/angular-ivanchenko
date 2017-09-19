@@ -30,7 +30,9 @@ var menuItemClick = function () {
         //        });
         "use strict";
         angular.module ('myModule', ['duScroll', 'ngAnimate', 'angular-inview', 'ngRoute'])
+               //basePath for deployment
                .constant('path', {basePath: '/angular-ivanchenko/project/public/'})
+               //basePath for local launch
                // .constant ('path', {basePath: '/project/public/'})
                .controller ('BodyCtrl', BodyCtrl)
                .controller ('articleCtrl', articleCtrl)
@@ -57,7 +59,7 @@ var menuItemClick = function () {
                 })
                 .when ('/article/:id', {
                     // template:'<p>article id={{myId}} msg={{msg}} should be here</p>',
-                    templateUrl: path.basePath + '/assets/templates/news-article.html',
+                    templateUrl: path.basePath + 'assets/templates/news-article.html',
                     controller: 'articleCtrl'
                 })
                 .otherwise ({
@@ -70,7 +72,7 @@ var menuItemClick = function () {
 // ================================== DIRECTIVES ===========================================
         function achievements(path) {
             var ddo = {
-                templateUrl: path.basePath + '/assets/templates/achievements.html'
+                templateUrl: path.basePath + 'assets/templates/achievements.html'
             };
             return ddo;
         }
@@ -79,7 +81,7 @@ var menuItemClick = function () {
             var ddo = {
                 restrict: 'E',
                 // templateUrl: '../assets/templates/block-header.html',
-                templateUrl: path.basePath + '/assets/templates/block-header.html',
+                templateUrl: path.basePath + 'assets/templates/block-header.html',
                 scope: {
                     content: '=',
                     h2Color: '@'
@@ -94,7 +96,7 @@ var menuItemClick = function () {
             var ddo = {
                 restrict: 'E',
                 // templateUrl: '../assets/templates/team-members.html'
-                templateUrl: path.basePath + '/assets/templates/team-members.html'
+                templateUrl: path.basePath + 'assets/templates/team-members.html'
             };
             return ddo;
         }
@@ -102,7 +104,7 @@ var menuItemClick = function () {
         function newsBlock(path) {
             var ddo = {
                 // templateUrl: '../assets/templates/news-block.html'
-                templateUrl: path.basePath + '/assets/templates/news-block.html'
+                templateUrl: path.basePath + 'assets/templates/news-block.html'
             };
             return ddo;
         }
@@ -110,7 +112,7 @@ var menuItemClick = function () {
         function contactForm(path) {
             var ddo = {
                 // templateUrl:'../assets/templates/contact-form.html'
-                templateUrl: path.basePath + '/assets/templates/contact-form.html'
+                templateUrl: path.basePath + 'assets/templates/contact-form.html'
             };
             return ddo;
         }
@@ -118,7 +120,7 @@ var menuItemClick = function () {
         function headerBlock(path) {
             var ddo = {
                 // templateUrl:'../assets/templates/contact-form.html'
-                templateUrl: path.basePath + '/assets/templates/header-block.html'
+                templateUrl: path.basePath + 'assets/templates/header-block.html'
             };
             return ddo;
 
