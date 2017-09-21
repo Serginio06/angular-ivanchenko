@@ -1,4 +1,4 @@
-<div class="header__title">
+<div class="header__title" data-ng-init="menuOnLoad()">
     <div class="header__logo" ng-click="goTo('top')"></div>
     <div class="header__menu" id="header__menu">
         <ul>
@@ -14,7 +14,7 @@
             <li class="header__menu--6 header__menu--items uppercase" ng-click="goTo('contacts')"><a href="">Contact</a></li>
             <hr/>
         </ul>
-        <a href="javascript:void(0);" id="header__menu--icon" onclick="menuIconClick()">&#9776;</a>
+        <a href="javascript:void(0);" id="header__menu--icon" ng-click="menuIconClick()">&#9776;</a>
     </div>
 </div>
 <div class="header--background">

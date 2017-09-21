@@ -7,6 +7,11 @@ var gulp = require ('gulp'),
     gutil = require ('gulp-util'),
     jshint = require ('gulp-jshint'),
     sass = require ('gulp-sass');
+// var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
+
+// var minify = require('gulp-minify');
+var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 
 
@@ -40,19 +45,17 @@ gulp.task('templates-copy', function () {
 });
 
 
-// compile css from sass
-// gulp.task ('sass', function () {
-//     return gulp.src ('source/assets/scss/**/*.scss')
-//                .pipe (sass ().on ('error', sass.logError))
-//                .pipe (gulp.dest ('public/assets/css'));
-// });
-
 // configure the jshint task
 gulp.task ('jshint', function () {
     gutil.log ('Check js and copying...');
     var stream = gulp.src ('source/assets/javascript/**/*.js')
+                     .pipe(sourcemaps.init())  // Process the original sources
                      .pipe (jshint ())
                      .pipe (jshint.reporter ('jshint-stylish'))
+                     .pipe(concat('all.js'))
+                     .pipe(uglify({mangle:false}))
+                     .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
+                     .pipe(sourcemaps.write()) // Add the map to modified source.
                      .pipe (gulp.dest ('public/assets/javascript'));
 
 });
